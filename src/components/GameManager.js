@@ -1,18 +1,18 @@
-import unnamedTDIcon from "../assets/unnamedTDIcon.png";
-import dtIcon from "../assets/dtIcon.png";
-import ccIcon from "../assets/ccIcon.png";
-import stIcon from "../assets/stIcon.png";
-import vIcon from "../assets/vIcon.png";
-import cc2Icon from "../assets/cc2Icon.png";
-import mlIcon from "../assets/mlIcon.png";
+import unnamedTDIcon from "/unnamedtdIcon.png";
+import dtIcon from "/dtIcon.png";
+import ccIcon from "/ccIcon.png";
+import stIcon from "/stIcon.png";
+import vIcon from "/vIcon.png";
+import cc2Icon from "/cc2Icon.png";
+import mlIcon from "/mlIcon.png";
 
-import ggjIcon from "../assets/submissiontypes/ggjIcon.png";
-import mjIcon from "../assets/submissiontypes/mjIcon.png";
-import schoolIcon from "../assets/submissiontypes/schoolIcon.png";
-import gameOffIcon from "../assets/submissiontypes/gameOffIcon.png";
-import majIcon from "../assets/submissiontypes/majIcon.png";
-import gmtkIcon from "../assets/submissiontypes/gmtkIcon.jpg";
-import brackeysIcon from "../assets/submissiontypes/brackeysIcon.jpg";
+import ggjIcon from "/submissiontypes/ggjIcon.png";
+import mjIcon from "/submissiontypes/mjIcon.png";
+import schoolIcon from "/submissiontypes/schoolIcon.png";
+import gameOffIcon from "/submissiontypes/gameOffIcon.png";
+import majIcon from "/submissiontypes/majIcon.png";
+import gmtkIcon from "/submissiontypes/gmtkIcon.jpg";
+import brackeysIcon from "/submissiontypes/brackeysIcon.jpg";
 
 export const Genres = {
   Strategy: "Strategy",
