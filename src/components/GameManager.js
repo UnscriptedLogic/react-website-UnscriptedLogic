@@ -43,63 +43,77 @@ class SubmissionType {
   }
 }
 
+const gmtkSubmission = new SubmissionType(
+  "Game Maker's ToolKit Game Jam",
+  "An annual game jam hosted by Mark Brown from Game Maker's ToolKit(GMTK) with a suprise theme. GMTK is a YouTube channel dedicated to breaking down game design of existing games and shedding light on the details.",
+  gmtkIcon,
+  "GMTK",
+  "#000000",
+  "#ffffff"
+);
+
+const brackeysSubmission = new SubmissionType(
+  "Brackey's Game Jam",
+  "A game jam hosted by the Brackey's team with a suprise theme. Brackey's is a YouTube channel that contains Unity tutorials of any topic targetted at any skill level.",
+  brackeysIcon,
+  "Brackey's",
+  "white",
+  "black"
+);
+
+const miniJamSubmission = new SubmissionType(
+  "Mini Game Jam",
+  "A game jam hosted bi-weekly over at Itch.IO with a pre-established theme and a suprise limitation.",
+  mjIcon,
+  "Mini Jam",
+  "white",
+  "black"
+);
+
+const sgGlobalJamSubmission = new SubmissionType(
+  "Singapore Global Game Jam",
+  "An annual game jam hosted by the Global Game Jam team and split into their individual countries. The jam consists of a surprise theme as well as the opportunity to present their submissions to the other jammers.",
+  ggjIcon,
+  "SGG",
+  "#ff1f00",
+  "#ffffff"
+);
+
+const gameoffSubmission = new SubmissionType(
+  "Game Off Game Jam",
+  "An annual game jam hosted by GitHub.",
+  gameOffIcon,
+  "GameOff",
+  "white",
+  "black"
+);
+
+const schoolSubmission = new SubmissionType(
+  "School Submission",
+  "This project was done for a school submission.",
+  schoolIcon,
+  "School",
+  "#afafaf",
+  "black"
+);
+
+const mixAndJamSubmission = new SubmissionType(
+  "Mix and Game Jam",
+  "An annual game jam hosted by Mix and Jam; a YouTube channel dedicated to breaking down game mechanics and recreating them in Unity.",
+  majIcon,
+  "Mix and Jam",
+  "#ff556a",
+  "#ffffff"
+);
+
 export const GameSubmissionType = {
-  GMTK: new SubmissionType(
-    "Game Maker's ToolKit Game Jam",
-    "An annual game jam hosted by the Mark Brown from GMTK with a suprise theme. Game Maker's ToolKit(GMTK) is a YouTube channel dedicated to breaking down game design of existing games",
-    gmtkIcon,
-    "GMTK",
-    "#000000",
-    "#ffffff"
-  ),
-  Brackeys: new SubmissionType(
-    "Brackey's Game Jam",
-    "A game jam hosted by the Brackey's team with a suprise theme. Brackey's is a YouTube channel that contains Unity tutorials of any topic targetted at any skill level.",
-    brackeysIcon,
-    "Brackey's",
-    "white",
-    "black"
-  ),
-  MiniJam: new SubmissionType(
-    "Mini Game Jam",
-    "A game jam hosted bi-weekly over at Itch.IO with a pre-established theme and a suprise limitation.",
-    mjIcon,
-    "Mini Jam",
-    "white",
-    "black"
-  ),
-  SGJam: new SubmissionType(
-    "Singapore Global Game Jam",
-    "An annual game jam hosted by the Global Game Jam team and split into their individual countries. The jam consists of a surprise theme as well as the opportunity to showcase their submissions.",
-    ggjIcon,
-    "SGG",
-    "#ff1f00",
-    "#ffffff"
-  ),
-  GameOff: new SubmissionType(
-    "Game Off Game Jam",
-    "An annual game jam hosted by GitHub.",
-    gameOffIcon,
-    "GameOff",
-    "white",
-    "black"
-  ),
-  School: new SubmissionType(
-    "School Submission",
-    "This project was done for a school submission.",
-    schoolIcon,
-    "School",
-    "#afafaf",
-    "black"
-  ),
-  MixAndJam: new SubmissionType(
-    "Mix and Game Jam",
-    "An annual game jam hosted by Mix and Jam; a YouTube channel dedicated to breaking down game mechanics and recreating them in Unity.",
-    majIcon,
-    "Mix and Jam",
-    "#ff556a",
-    "#ffffff"
-  ),
+  GMTK: gmtkSubmission,
+  Brackeys: brackeysSubmission,
+  MiniJam: miniJamSubmission,
+  SGJam: sgGlobalJamSubmission,
+  GameOff: gameoffSubmission,
+  School: schoolSubmission,
+  MixAndJam: mixAndJamSubmission,
 };
 
 class Game {
@@ -170,7 +184,7 @@ export const majorGames = [
   ),
   new MajorGame(
     "Desolite Tanks",
-    "A cartoon themed 3D top game arcade game inspired by Battle City by NAM-CO",
+    "A cartoon themed 3D arcade game heavily inspired by Battle City by NAM-CO",
     "2022",
     dtIcon,
     "/",
