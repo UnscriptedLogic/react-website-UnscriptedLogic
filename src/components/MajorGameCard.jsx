@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStatusChipColor, GenresToString } from "./GameManager";
+import { GetStatusChipColor, GenresToString } from "../GameManager";
 
 import {
   Card,

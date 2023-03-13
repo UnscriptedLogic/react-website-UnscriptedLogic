@@ -9,10 +9,10 @@ import {
   Typography,
 } from "@mui/material";
 
-import GameCard from "./GameCard";
-import MajorGameCard from "./MajorGameCard";
+import GameCard from "../../components/GameCard";
+import MajorGameCard from "../../components/MajorGameCard";
 
-import { majorGames, minorGames } from "./GameManager";
+import { majorGames, minorGames } from "../../GameManager";
 
 const GamesSection = () => {
   return (

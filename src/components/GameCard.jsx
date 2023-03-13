@@ -1,6 +1,6 @@
 import React from "react";
 import SubmissionTooltip from "./SubmissionTooltip";
-import { GenresToString } from "./GameManager";
+import { GenresToString } from "../GameManager";
 
 import {
   Card,

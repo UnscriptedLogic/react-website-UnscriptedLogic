@@ -1,23 +1,23 @@
 import React from "react";
-import { Container, Box } from "@mui/material";
+import { Typography, Box, Container, Divider } from "@mui/material";
 
-const EducationSection = () => {
+const GameDevTitleSection = () => {
   return (
     <Container>
       <Box
         sx={{
-          height: "20vh",
-          backgroundColor: "#545454",
+          height: "50vh",
+          backgroundColor: "white",
           padding: "5em",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        Education and Work Experience
+        Logo / About Me
       </Box>
     </Container>
   );
 };
 
-export default EducationSection;
+export default GameDevTitleSection;
