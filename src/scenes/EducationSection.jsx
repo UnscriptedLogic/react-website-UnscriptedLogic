@@ -20,7 +20,7 @@ const EducationSection = () => {
       >
         <EducationCard
           name="Temasek Polytechnic"
-          study="Diploma of Education, Information Technology"
+          study="Diploma in Information Technology"
           studyRemarks="2.54 GPA"
           year="2021 - 2024"
           status="Current"
@@ -28,7 +28,7 @@ const EducationSection = () => {
         ></EducationCard>
         <EducationCard
           name="Institute of Technical Education"
-          study="Diploma of Civil and Structural Engineering"
+          study="Diploma in Civil and Structural Engineering and Design"
           studyRemarks="3.94 GPA"
           year="2019 - 2021"
           status="Graduated"
