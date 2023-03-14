@@ -16,7 +16,7 @@ const GameDevTitleSection = () => {
         }}
       >
         <div className="videoDiv">
-          <video autoPlay loop muted width="1000px" height="500px">
+          <video autoPlay loop muted width="2000px" height="650px">
             <source src={video} type="video/mp4" />
           </video>
           <Box
