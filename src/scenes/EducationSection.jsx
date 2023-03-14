@@ -1,6 +1,6 @@
 import React from "react";
 import EducationCard from "../components/EducationCard";
-import { Container, Box } from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 import tpLogo from "/tpLogo.jpg";
 import iteLogo from "/iteLogo.jpg";
 
@@ -10,14 +10,16 @@ const EducationSection = () => {
       <Box
         sx={{
           backgroundColor: "#323232",
-          padding: "2em",
+          padding: "2em 1em 1em 1em",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
           alignItems: "center",
-          gap: "15px",
+          gap: "20px",
         }}
       >
+        <Typography variant="h5" color="white">
+          Education
+        </Typography>
         <EducationCard
           name="Temasek Polytechnic"
           study="Diploma in Information Technology"

@@ -1,0 +1,10 @@
+.videoDiv {
+  position: relative;
+  text-align: center;
+  max-height: 400px;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

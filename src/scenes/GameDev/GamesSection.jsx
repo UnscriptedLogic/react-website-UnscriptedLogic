@@ -34,7 +34,7 @@ const GamesSection = () => {
           variant="h6"
           color="#ffffff"
         >
-          Game Projects
+          Featured Game Projects
         </Typography>
         <Box
           sx={{

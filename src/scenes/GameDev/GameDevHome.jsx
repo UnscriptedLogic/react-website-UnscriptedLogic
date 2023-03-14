@@ -1,8 +1,9 @@
-import Navbar from "../../components/Navbar";
+import Navbar from "../Navbar";
 import TitleSection from "./GameDevTitleSection";
 import GamesSection from "./GamesSection";
 import EducationSection from "../EducationSection";
-import Footer from "../../components/Footer";
+import GameWorkExperience from "./GameWorkExperience";
+import Footer from "../Footer";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <TitleSection></TitleSection>
       <GamesSection></GamesSection>
+      <GameWorkExperience></GameWorkExperience>
       <EducationSection></EducationSection>
       <Footer></Footer>
     </div>
