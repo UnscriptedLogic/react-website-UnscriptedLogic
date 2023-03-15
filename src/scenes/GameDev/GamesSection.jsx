@@ -56,6 +56,7 @@ const GamesSection = () => {
                 year={item.year}
                 status={item.gameStatus}
                 genres={item.genres}
+                techUsed={item.techUsed}
               ></MajorGameCard>
             );
           })}
@@ -87,6 +88,7 @@ const GamesSection = () => {
                 desc={item.desc}
                 year={item.year}
                 genres={item.genres}
+                techUsed={item.techUsed}
                 submissionType={item.submissionTypes}
               ></GameCard>
             );

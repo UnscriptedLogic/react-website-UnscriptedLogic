@@ -13,6 +13,7 @@ import gameOffIcon from "/submissiontypes/gameOffIcon.png";
 import majIcon from "/submissiontypes/majIcon.png";
 import gmtkIcon from "/submissiontypes/gmtkIcon.jpg";
 import brackeysIcon from "/submissiontypes/brackeysIcon.jpg";
+import { Tech } from "./Manager";
 
 export const Genres = {
   Strategy: "Strategy",
@@ -117,26 +118,45 @@ export const GameSubmissionType = {
 };
 
 class Game {
-  constructor(name, desc, year, thumbnail, gameLink, genres) {
+  constructor(name, desc, year, thumbnail, gameLink, genres, techUsed) {
     this.name = name;
     this.desc = desc;
     this.year = year;
     this.thumbnail = thumbnail;
     this.gameLink = gameLink;
     this.genres = genres;
+    this.techUsed = techUsed;
   }
 }
 
 class MinorGame extends Game {
-  constructor(name, desc, year, thumbnail, gameLink, genres, submissionTypes) {
-    super(name, desc, year, thumbnail, gameLink, genres);
+  constructor(
+    name,
+    desc,
+    year,
+    thumbnail,
+    gameLink,
+    genres,
+    techUsed,
+    submissionTypes
+  ) {
+    super(name, desc, year, thumbnail, gameLink, genres, techUsed);
     this.submissionTypes = submissionTypes;
   }
 }
 
 class MajorGame extends Game {
-  constructor(name, desc, year, thumbnail, gameLink, genres, gameStatus) {
-    super(name, desc, year, thumbnail, gameLink, genres);
+  constructor(
+    name,
+    desc,
+    year,
+    thumbnail,
+    gameLink,
+    genres,
+    techUsed,
+    gameStatus
+  ) {
+    super(name, desc, year, thumbnail, gameLink, genres, techUsed);
     this.gameStatus = gameStatus;
   }
 }
@@ -180,6 +200,7 @@ export const majorGames = [
     unnamedTDIcon,
     "/",
     [Genres.Strategy, Genres.TowerDefense],
+    [Tech.Unity, Tech.Blender],
     GameStatus.Completed
   ),
   new MajorGame(
@@ -189,6 +210,7 @@ export const majorGames = [
     dtIcon,
     "/",
     [Genres.Arcade, Genres.Shooter],
+    [Tech.Unity, Tech.Blender],
     GameStatus.Completed
   ),
 ];
@@ -202,6 +224,7 @@ export const minorGames = [
     stIcon,
     "/",
     [Genres.Strategy, Genres.TowerDefense],
+    [Tech.Unity, Tech.Illustrator],
     GameSubmissionType.SGJam
   ),
   new MinorGame(
@@ -211,6 +234,7 @@ export const minorGames = [
     cc2Icon,
     "/",
     [Genres.Platformer],
+    [Tech.Unity, Tech.AWS],
     GameSubmissionType.School
   ),
   new MinorGame(
@@ -220,6 +244,7 @@ export const minorGames = [
     ccIcon,
     "/",
     [Genres.Platformer],
+    [Tech.Unity],
     GameSubmissionType.GMTK
   ),
   new MinorGame(
@@ -229,6 +254,7 @@ export const minorGames = [
     vIcon,
     "/",
     [Genres.Puzzle, Genres.Horror],
+    [Tech.Unity],
     GameSubmissionType.MiniJam
   ),
   new MinorGame(
@@ -238,6 +264,7 @@ export const minorGames = [
     mlIcon,
     "/",
     [Genres.Puzzle, Genres.Platformer],
+    [Tech.Unity],
     GameSubmissionType.MixAndJam
   ),
 ];

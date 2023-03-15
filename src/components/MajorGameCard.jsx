@@ -13,12 +13,25 @@ import {
 } from "@mui/material";
 
 import CircleIcon from "@mui/icons-material/Circle";
+import TechIconsCardHeader from "./TechIconsCardHeader";
+import { Tech } from "../Manager";
 
-const MajorGameCard = ({ image, title, desc, year, status, genres }) => {
+const MajorGameCard = ({
+  image,
+  title,
+  desc,
+  year,
+  status,
+  genres,
+  techUsed,
+}) => {
   return (
     <Card sx={{ width: 375, ":hover": { boxShadow: 20 } }}>
       <CardActionArea>
-        <CardMedia sx={{ height: 250 }} image={image} />
+        <Box position="relative">
+          <CardMedia sx={{ height: 250 }} image={image} />
+          <TechIconsCardHeader techUsed={techUsed} />
+        </Box>
         <CardContent
           sx={{
             backgroundColor: "#252525",
