@@ -23,7 +23,11 @@ const TechIconsCardHeader = ({ techUsed }) => {
                 "&.MuiAvatar-root": {
                   border: `2px solid ${item.color}`,
                 },
-                // boxShadow: "0 0 5px",
+                filter: "brightness(65%)",
+                transition: "filter .5s",
+                "&:hover": {
+                  filter: "brightness(100%)",
+                },
               }}
             ></Avatar>
           );

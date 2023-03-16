@@ -1,14 +1,12 @@
-import Navbar from "../Navbar";
 import TitleSection from "./GameDevTitleSection";
 import GamesSection from "./GamesSection";
 import EducationSection from "../EducationSection";
 import GameWorkExperience from "./GameWorkExperience";
 import Footer from "../Footer";
 
-function App() {
+function GameDevHome() {
   return (
-    <div className="App">
-      <Navbar />
+    <div className="GameDevHome">
       <TitleSection></TitleSection>
       <GamesSection></GamesSection>
       <GameWorkExperience></GameWorkExperience>
@@ -18,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default GameDevHome;

@@ -2,6 +2,7 @@ import unityLogo from "/techLogos/untiyLogo.png";
 import awsLogo from "/techLogos/awsLogo.jpg";
 import blenderLogo from "/techLogos/blenderLogo.png";
 import illustratorLogo from "/techLogos/illustratorLogo.png";
+import playfabLogo from "/techLogos/playfab.jpg";
 
 class Technology {
   constructor(name, desc, icon, color) {
@@ -40,9 +41,17 @@ const illustrator = new Technology(
   "rgba(255, 100, 0, 0)"
 );
 
+const playfab = new Technology(
+  "Microsoft Azure PlayFab",
+  "Cloud based utilities to build operate and analyze games",
+  playfabLogo,
+  "rgba(255, 100, 0, 0)"
+);
+
 export const Tech = {
   Unity: unity,
   AWS: aws,
   Blender: blender,
   Illustrator: illustrator,
+  PlayFab: playfab,
 };

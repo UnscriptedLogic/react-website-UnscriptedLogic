@@ -200,7 +200,7 @@ export const majorGames = [
     unnamedTDIcon,
     "/",
     [Genres.Strategy, Genres.TowerDefense],
-    [Tech.Unity, Tech.Blender],
+    [Tech.Unity, Tech.Blender, Tech.PlayFab],
     GameStatus.Completed
   ),
   new MajorGame(

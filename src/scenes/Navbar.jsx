@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography, Divider } from "@mui/material";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const changePage = (pageName) => {
+    navigate(`/${pageName}`);
+  };
+
   return (
     <Box
       display="flex"
@@ -11,7 +18,7 @@ const Navbar = () => {
       padding="10px"
       sx={{ backgroundColor: "black" }}
     >
-      <Button variant="text">
+      <Button variant="text" onClick={() => changePage("gamedev")}>
         <Typography variant="body3" color="#efefef">
           Game Dev
         </Typography>
@@ -26,9 +33,9 @@ const Navbar = () => {
           borderColor: "#5f5f5f",
         }}
       />
-      <Button variant="text" disabled>
-        <Typography variant="body3" color="#4f4f4f">
-          Web Dev (WIP)
+      <Button variant="text" onClick={() => changePage("webdev")}>
+        <Typography variant="body3" color="#efefef">
+          Web Dev
         </Typography>
       </Button>
     </Box>
