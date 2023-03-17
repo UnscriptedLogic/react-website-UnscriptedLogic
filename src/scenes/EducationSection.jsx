@@ -1,5 +1,5 @@
 import React from "react";
-import { EducationCard } from "../../ImportRoutes";
+import { EducationCard } from "../ImportRoutes";
 import { Container, Box, Typography } from "@mui/material";
 import tpLogo from "/tpLogo.jpg";
 import iteLogo from "/iteLogo.jpg";

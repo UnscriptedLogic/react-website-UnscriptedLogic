@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { GetStatusChipColor, GenresToString } from "../GameManager";
 
 import {
@@ -14,7 +15,6 @@ import {
 
 import CircleIcon from "@mui/icons-material/Circle";
 import TechIconsCardHeader from "./TechIconsCardHeader";
-import { Tech } from "../Manager";
 
 const MajorGameCard = ({
   image,
@@ -24,7 +24,12 @@ const MajorGameCard = ({
   status,
   genres,
   techUsed,
+  blogLink,
 }) => {
+  const navigateToBlog = (blogName) => {
+    const navigate = useNavigate;
+    navigate(`/blog:${blogName}`);
+  };
   return (
     <Card
       sx={{
@@ -37,7 +42,11 @@ const MajorGameCard = ({
       }}
       variant="outlined"
     >
-      <CardActionArea>
+      <CardActionArea
+        onClick={() => {
+          navigateToBlog(blogLink);
+        }}
+      >
         <Box position="relative">
           <CardMedia sx={{ height: 250 }} image={image} />
           <TechIconsCardHeader techUsed={techUsed} />

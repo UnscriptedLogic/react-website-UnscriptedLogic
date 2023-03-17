@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Box, Typography } from "@mui/material";
-
 import { GameCard, MajorGameCard } from "../../ImportRoutes";
 import { majorGames, minorGames } from "../../GameManager";
 
@@ -47,6 +46,7 @@ const GamesSection = () => {
                 status={item.gameStatus}
                 genres={item.genres}
                 techUsed={item.techUsed}
+                blogLink={item.blogLink}
               ></MajorGameCard>
             );
           })}
@@ -79,6 +79,7 @@ const GamesSection = () => {
                 year={item.year}
                 genres={item.genres}
                 techUsed={item.techUsed}
+                blogLink={item.blogLink}
                 submissionType={item.submissionTypes}
               ></GameCard>
             );

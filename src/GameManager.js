@@ -118,7 +118,16 @@ export const GameSubmissionType = {
 };
 
 class Game {
-  constructor(name, desc, year, thumbnail, gameLink, genres, techUsed) {
+  constructor(
+    name,
+    desc,
+    year,
+    thumbnail,
+    gameLink,
+    genres,
+    techUsed,
+    blogLink
+  ) {
     this.name = name;
     this.desc = desc;
     this.year = year;
@@ -126,6 +135,7 @@ class Game {
     this.gameLink = gameLink;
     this.genres = genres;
     this.techUsed = techUsed;
+    this.blogLink = blogLink;
   }
 }
 
@@ -138,9 +148,10 @@ class MinorGame extends Game {
     gameLink,
     genres,
     techUsed,
+    blogLink,
     submissionTypes
   ) {
-    super(name, desc, year, thumbnail, gameLink, genres, techUsed);
+    super(name, desc, year, thumbnail, gameLink, genres, techUsed, blogLink);
     this.submissionTypes = submissionTypes;
   }
 }
@@ -154,9 +165,10 @@ class MajorGame extends Game {
     gameLink,
     genres,
     techUsed,
+    blogLink,
     gameStatus
   ) {
-    super(name, desc, year, thumbnail, gameLink, genres, techUsed);
+    super(name, desc, year, thumbnail, gameLink, genres, techUsed, blogLink);
     this.gameStatus = gameStatus;
   }
 }
@@ -201,6 +213,7 @@ export const majorGames = [
     "/",
     [Genres.Strategy, Genres.TowerDefense],
     [Tech.Unity, Tech.Blender, Tech.PlayFab],
+    "unnamedtd",
     GameStatus.Completed
   ),
   new MajorGame(
@@ -211,6 +224,7 @@ export const majorGames = [
     "/",
     [Genres.Arcade, Genres.Shooter],
     [Tech.Unity, Tech.Blender],
+    "desolitetanks",
     GameStatus.Completed
   ),
 ];
@@ -225,6 +239,7 @@ export const minorGames = [
     "/",
     [Genres.Strategy, Genres.TowerDefense],
     [Tech.Unity, Tech.Illustrator],
+    "theskilltree",
     GameSubmissionType.SGJam
   ),
   new MinorGame(
@@ -235,6 +250,7 @@ export const minorGames = [
     "/",
     [Genres.Platformer],
     [Tech.Unity, Tech.AWS],
+    "cc2",
     GameSubmissionType.School
   ),
   new MinorGame(
@@ -245,6 +261,7 @@ export const minorGames = [
     "/",
     [Genres.Platformer],
     [Tech.Unity],
+    "cuboidalcontrol",
     GameSubmissionType.GMTK
   ),
   new MinorGame(
@@ -255,6 +272,7 @@ export const minorGames = [
     "/",
     [Genres.Puzzle, Genres.Horror],
     [Tech.Unity],
+    "vizion",
     GameSubmissionType.MiniJam
   ),
   new MinorGame(
@@ -265,6 +283,7 @@ export const minorGames = [
     "/",
     [Genres.Puzzle, Genres.Platformer],
     [Tech.Unity],
+    "memeorylooper",
     GameSubmissionType.MixAndJam
   ),
 ];

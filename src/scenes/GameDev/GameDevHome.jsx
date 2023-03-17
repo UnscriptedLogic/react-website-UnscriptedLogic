@@ -3,7 +3,6 @@ import {
   GamesSection,
   GameWorkExperience,
   EducationSection,
-  Footer,
 } from "../../ImportRoutes";
 
 function GameDevHome() {
@@ -13,7 +12,6 @@ function GameDevHome() {
       <GamesSection></GamesSection>
       <GameWorkExperience></GameWorkExperience>
       <EducationSection></EducationSection>
-      <Footer></Footer>
     </div>
   );
 }
