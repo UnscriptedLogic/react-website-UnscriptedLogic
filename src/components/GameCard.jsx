@@ -26,7 +26,17 @@ const GameCard = ({
   submissionType,
 }) => {
   return (
-    <Card sx={{ width: 275, ":hover": { boxShadow: 20 } }}>
+    <Card
+      sx={{
+        width: 275,
+        borderColor: "black",
+        ":hover": {
+          boxShadow: 20,
+          borderColor: "#3f3f3f",
+        },
+      }}
+      variant="outlined"
+    >
       <CardActionArea>
         <Box position="relative">
           <CardMedia sx={{ height: 175 }} image={image} />

@@ -1,13 +1,15 @@
-import TitleSection from "./GameDevTitleSection";
-import GamesSection from "./GamesSection";
-import EducationSection from "../EducationSection";
-import GameWorkExperience from "./GameWorkExperience";
-import Footer from "../Footer";
+import {
+  GameDevTitleSection,
+  GamesSection,
+  GameWorkExperience,
+  EducationSection,
+  Footer,
+} from "../../ImportRoutes";
 
 function GameDevHome() {
   return (
     <div className="GameDevHome">
-      <TitleSection></TitleSection>
+      <GameDevTitleSection></GameDevTitleSection>
       <GamesSection></GamesSection>
       <GameWorkExperience></GameWorkExperience>
       <EducationSection></EducationSection>

@@ -1,8 +1,6 @@
 import React from "react";
-import EducationCard from "../../components/EducationCard";
-import { Container, Box, Typography, Divider } from "@mui/material";
-import tpLogo from "/tpLogo.jpg";
-import iteLogo from "/iteLogo.jpg";
+import { EducationCard } from "../../ImportRoutes";
+import { Container, Box, Typography } from "@mui/material";
 
 const GameWorkExperience = () => {
   return (

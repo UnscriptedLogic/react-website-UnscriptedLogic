@@ -26,7 +26,17 @@ const MajorGameCard = ({
   techUsed,
 }) => {
   return (
-    <Card sx={{ width: 375, ":hover": { boxShadow: 20 } }}>
+    <Card
+      sx={{
+        width: 375,
+        borderColor: "black",
+        ":hover": {
+          boxShadow: 20,
+          borderColor: "#4f4f4f",
+        },
+      }}
+      variant="outlined"
+    >
       <CardActionArea>
         <Box position="relative">
           <CardMedia sx={{ height: 250 }} image={image} />

@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  Container,
-  Box,
-  Divider,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 
-import GameCard from "../../components/GameCard";
-import MajorGameCard from "../../components/MajorGameCard";
-
+import { GameCard, MajorGameCard } from "../../ImportRoutes";
 import { majorGames, minorGames } from "../../GameManager";
 
 const GamesSection = () => {
