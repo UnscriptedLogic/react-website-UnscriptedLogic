@@ -33,7 +33,7 @@ const Navbar = () => {
           borderColor: "#5f5f5f",
         }}
       />
-      <Button variant="text" onClick={() => changePage("webdev")}>
+      <Button variant="text" onClick={() => changePage("webdev")} disabled>
         <Typography variant="body3" color="#efefef">
           Web Dev
         </Typography>

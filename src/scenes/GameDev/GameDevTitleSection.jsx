@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Container, Avatar } from "@mui/material";
+import { Typography, Box, Container, Avatar, Divider } from "@mui/material";
 import video from "/GameDevTrailer.mp4";
 import profilePic from "/bestpicResized.jpg";
 import "./GameDevTitleSection.css";
@@ -66,6 +66,7 @@ const GameDevTitleSection = () => {
               >
                 Nathaniel Harold Lumbao Alcala
               </Typography>
+              <Divider sx={{ borderColor: "#7f7f7f" }} flexItem></Divider>
               <Typography variant="body2" color="#cfcfcf" textAlign="center">
                 An aspiring self learned game developer from Singapore on a
                 mission to equip myself with the technologies, skillset and

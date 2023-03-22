@@ -26,9 +26,9 @@ const MajorGameCard = ({
   techUsed,
   blogLink,
 }) => {
+  const navigate = useNavigate();
   const navigateToBlog = (blogName) => {
-    const navigate = useNavigate;
-    navigate(`/blog:${blogName}`);
+    navigate(`/blog/${blogName}`);
   };
   return (
     <Card

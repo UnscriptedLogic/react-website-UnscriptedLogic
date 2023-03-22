@@ -7,6 +7,7 @@ import {
   WebDevHome,
   Footer,
   BlogPage,
+  UnnamedTD,
 } from "./ImportRoutes";
 
 const App = () => {
@@ -17,9 +18,11 @@ const App = () => {
         <Route path="/" element={<GameDevHome />} />
         <Route path="/gamedev" element={<GameDevHome />} />
         <Route path="/webdev" element={<WebDevHome />} />
-        <Route path="/blog">
-          <Route path=":unnamedtd" element={<BlogPage />} />
-        </Route>
+        {/* <Route path="/blog" /> */}
+        <Route
+          path="/blog/unnamedtd"
+          element={<BlogPage page={<UnnamedTD />} />}
+        />
       </Routes>
       <Footer></Footer>
     </Box>
