@@ -5,6 +5,8 @@ const ImageCard = ({
   image,
   height = "200px",
   width = "100%",
+  imageHeight = "600px",
+  imageWidth = "auto",
   translateX = "0px",
   translateY = "-25%",
 }) => {
@@ -18,8 +20,13 @@ const ImageCard = ({
     >
       <img
         src={image}
-        height="600px"
+        height={imageHeight}
+        width={imageWidth}
         style={{
+          flexShrink: "0",
+          minWidth: "100%",
+          minHeight: "100%",
+          objectFit: "cover",
           transform: `translate(${translateX}, ${translateY})`,
         }}
       />

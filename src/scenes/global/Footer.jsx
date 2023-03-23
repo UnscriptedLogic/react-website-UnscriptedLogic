@@ -9,6 +9,7 @@ const Footer = () => {
         backgroundColor: "black",
         padding: "4em",
         display: "flex",
+        alignSelf: "flex-end",
         justifyContent: "center",
         alignItems: "center",
         color: "white",
