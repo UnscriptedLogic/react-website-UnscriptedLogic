@@ -29,13 +29,11 @@ const GameCard = ({
     <Card
       sx={{
         width: 275,
-        borderColor: "black",
+        boxShadow: "0px 0px 5px",
         ":hover": {
-          boxShadow: 20,
-          borderColor: "#3f3f3f",
+          boxShadow: "0px 0px 10px",
         },
       }}
-      variant="outlined"
     >
       <CardActionArea>
         <Box position="relative">

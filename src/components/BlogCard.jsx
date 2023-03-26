@@ -13,7 +13,9 @@ export class CardTag {
 const BlogCard = ({
   header = "",
   headerColour = "white",
-  color = "#3c3c4f",
+  headerFontSize = "35px",
+  color = "#2a2a3d",
+  background = "",
   cardWidth,
   cornerSize = "10px",
   padding = "12px",
@@ -30,7 +32,7 @@ const BlogCard = ({
           variant="body4"
           color={headerColour}
           fontWeight="400"
-          fontSize="35px"
+          fontSize={headerFontSize}
         >
           {header}
         </Typography>
@@ -53,7 +55,6 @@ const BlogCard = ({
                   paddingBottom: "15px",
                   borderRadius: cornerSize,
                   zIndex: cardTags.length - index,
-                  boxShadow: "0px 0px 5px black",
                 }}
               >
                 {item.title}
@@ -71,7 +72,8 @@ const BlogCard = ({
         width={cardWidth}
         border={`solid ${borderThiccness} ${borderColor}`}
         sx={{
-          boxShadow: "0px 0px 7px",
+          boxShadow: "0px 0px 4px",
+          background: { background },
         }}
       >
         {children}

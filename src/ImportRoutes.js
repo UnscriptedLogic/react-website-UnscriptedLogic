@@ -9,6 +9,7 @@ export { default as GameCard } from "./components/GameCard";
 export { default as MajorGameCard } from "./components/MajorGameCard";
 export { default as ImageCard } from "./components/ImageCard";
 export { default as BlogCard } from "./components/BlogCard";
+export { default as BlogMedia } from "./components/BlogMedia";
 
 //game dev stuff
 export { default as GameDevHome } from "./scenes/GameDev/GameDevHome";
@@ -42,3 +43,8 @@ export { default as brackeysIcon } from "/submissiontypes/brackeysIcon.jpg";
 export { default as unnamedtdSC1 } from "/unnamedtd/screenshot1.png";
 export { default as unnamedtdSC2 } from "/unnamedtd/screenshot2.png";
 export { default as btd1 } from "/unnamedtd/btd1.jpg";
+export { default as robloxTB } from "/unnamedtd/robloxTB.jpg";
+export { default as robloxtowerbattleslaodout } from "/unnamedtd/robloxtowerbattleslaodout.png";
+export { default as utdGantt } from "/unnamedtd/utdGantt.png";
+export { default as entityDiagram } from "/unnamedtd/entityDiagram.png";
+export { default as buildingSystem } from "/unnamedtd/buildingSystem.png";

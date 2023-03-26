@@ -29,18 +29,18 @@ const MajorGameCard = ({
   const navigate = useNavigate();
   const navigateToBlog = (blogName) => {
     navigate(`/blog/${blogName}`);
+    window.scroll(0, 0);
   };
   return (
     <Card
       sx={{
         width: 375,
-        borderColor: "black",
+        boxShadow: "0px 0px 10px",
         ":hover": {
-          boxShadow: 20,
-          borderColor: "#4f4f4f",
+          boxShadow: "0px 0px 25px",
         },
       }}
-      variant="outlined"
+      // variant="outlined"
     >
       <CardActionArea
         onClick={() => {
