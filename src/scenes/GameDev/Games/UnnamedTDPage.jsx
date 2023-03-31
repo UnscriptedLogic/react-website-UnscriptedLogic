@@ -37,7 +37,15 @@ const UnnamedTDPage = () => {
         open={open}
         onClick={handleClose}
       >
-        <img src={enlargedImage} width="75%" height="75%" />
+        <Box
+          overflow="hidden"
+          padding="20px"
+          display="flex"
+          width="100%"
+          justifyContent="center"
+        >
+          <img src={enlargedImage} style={{ maxWidth: "75%" }} />
+        </Box>
       </Backdrop>
       <Box width="100%">
         {/* Hero Section */}
@@ -58,8 +66,8 @@ const UnnamedTDPage = () => {
           sx={{
             // backgroundColor: "#e5e5f7",
             backgroundImage:
-              "radial-gradient(rgba(100, 100, 110, .5) 1px, rgba(15, 15, 25, 1) 0.5px)",
-            backgroundSize: "28px 28px",
+              "radial-gradient(rgba(100, 100, 110, .5) 2px, rgba(15, 15, 25, 1) 0.5px)",
+            backgroundSize: "28 px 28px",
           }}
         >
           <Container maxWidth="md">
@@ -320,29 +328,33 @@ const UnnamedTDPage = () => {
                 onClicked={handleToggle}
               />
               <BlogCard>
-                <Typography variant="body4" color="#bfbfcf" fontSize="17px">
-                  Stripping away all the fancy functionality from my ideas, I
-                  brought forward the aspects of the game that serve as the
-                  foundation for the rest to be built upon. I drafted out some
-                  diagrams to help me visualize my work.
-                </Typography>
-                <br />
-                <br />
-                <BlogMedia
-                  src={entityDiagram}
-                  width="100%"
-                  height=""
-                  caption="Drafted on the school whiteboard of an empty classroom, I got to work, remembering all my failed attempts at making a decent entity system and throwing away old habits such as relying solely on inheritance and overcomplicating aspects of the system for the sake of flexibility."
-                  onClicked={handleToggle}
-                />
-                <br />
-                <BlogMedia
-                  src={buildingSystem}
-                  width="100%"
-                  height=""
-                  caption="Made with lucid chart, this diagram helped me clarify how some of the systems would interact with each other."
-                  onClicked={handleToggle}
-                />
+                <Box display="flex" flexDirection="column" gap="16px">
+                  <Box>
+                    <Typography variant="body4" color="#bfbfcf" fontSize="17px">
+                      Stripping away all the fancy functionality from my ideas,
+                      I brought forward the aspects of the game that serve as
+                      the foundation for the rest to be built upon. I drafted
+                      out some diagrams to help me visualize my work.
+                    </Typography>
+                  </Box>
+                  <Box height="100%" width="100%" display="flex" gap="6px">
+                    <BlogMedia
+                      src={entityDiagram}
+                      width="100%"
+                      height=""
+                      caption="Drafted on the school whiteboard of an empty classroom, I got to work, remembering all my failed attempts at making a decent entity system and throwing away old habits such as relying solely on inheritance and overcomplicating aspects of the system for the sake of flexibility."
+                      onClicked={handleToggle}
+                    />
+                    <br />
+                    <BlogMedia
+                      src={buildingSystem}
+                      width="100%"
+                      height=""
+                      caption="Made with lucid chart, this diagram helped me clarify how some of the systems would interact with each other."
+                      onClicked={handleToggle}
+                    />
+                  </Box>
+                </Box>
               </BlogCard>
               <BlogCard
                 header="Production"
