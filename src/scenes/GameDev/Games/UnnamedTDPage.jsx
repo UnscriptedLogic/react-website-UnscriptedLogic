@@ -5,7 +5,6 @@ import {
   BlogMedia,
   ImageCard,
   unnamedtdSC1,
-  unnamedtdSC2,
   btd1,
   unnamedTDIcon,
   robloxTB,
@@ -13,6 +12,11 @@ import {
   utdGantt,
   entityDiagram,
   buildingSystem,
+  scoutReference,
+  turretref,
+  sniperref,
+  tdmodels,
+  scoutTowerPrompt,
 } from "../../../ImportRoutes";
 import { CardTag } from "../../../components/BlogCard";
 
@@ -31,7 +35,7 @@ const UnnamedTDPage = () => {
   };
 
   return (
-    <Box>
+    <Box marginBottom="24px">
       <Backdrop
         sx={{ color: "#fff", zIndex: 99 }}
         open={open}
@@ -303,7 +307,7 @@ const UnnamedTDPage = () => {
                 flexItem
               />
               <BlogCard
-                header="Development"
+                header="Development - Code"
                 padding="16px"
                 headerColour="#cfcfff"
               >
@@ -357,6 +361,87 @@ const UnnamedTDPage = () => {
                 </Box>
               </BlogCard>
               <BlogCard
+                cardTags={[new CardTag("Insight", "white")]}
+                borderColor="#4b4b8d"
+                borderThiccness="2px"
+              >
+                <Typography variant="body4" color="#bfbfcf" fontSize="17px">
+                  Planning out systems helps provide insight on how they may
+                  interact, keeping things easily understood for not just me but
+                  for everyone. Always develop like your developing for someone
+                  else.
+                </Typography>
+              </BlogCard>
+              <BlogCard header="Development - Art">
+                <Typography variant="body4" color="#bfbfcf" fontSize="17px">
+                  Following the creation of the system logic, I went ahead and
+                  began searching the internet for inspriations for what the
+                  design of the towers would look like.
+                </Typography>
+                <Box
+                  margin="16px"
+                  display="flex"
+                  flexWrap="wrap"
+                  justifyContent="center"
+                  gap="16px"
+                >
+                  <BlogMedia
+                    src={scoutReference}
+                    onClicked={handleToggle}
+                  ></BlogMedia>
+                  <BlogMedia
+                    src={turretref}
+                    onClicked={handleToggle}
+                  ></BlogMedia>
+                  <BlogMedia
+                    src={sniperref}
+                    onClicked={handleToggle}
+                  ></BlogMedia>
+                </Box>
+                <Typography variant="body4" color="#bfbfcf" fontSize="17px">
+                  These were the original images that I took inspiration from to
+                  model the first 3 towers, clearly heavily using them as the
+                  base before deviating off to my own variants. My modelling
+                  skills were never the best so therefore I needed good
+                  references.
+                </Typography>
+                <BlogCard
+                  cardTags={[new CardTag("Always Remember!", "white")]}
+                  sx={{ marginTop: "24px", marginBottom: "24px" }}
+                  borderColor="#d48d00"
+                  borderThiccness="2px"
+                >
+                  <Typography variant="body4" color="#bfbfcf" fontSize="17px">
+                    Never design from memory! Always have references be it 3D
+                    modelling or 2D sketching.
+                  </Typography>
+                </BlogCard>
+                <BlogMedia src={scoutTowerPrompt} width="100%" height="100%" />
+                <Typography variant="body4" color="#bfbfcf" fontSize="17px">
+                  I've even gone as far as holding little reaction based surveys
+                  to patrons of the Brackey's Discord server. It definitely
+                  helped me get feedback on simple things like choosing which
+                  colour suited best for the design of things. Although I do
+                  hold back on how often I do hold these just in case the server
+                  owners aren't too happy about them. Woops.
+                </Typography>
+                <BlogMedia
+                  src={tdmodels}
+                  onClicked={handleToggle}
+                  width="100%"
+                  height="100%"
+                  sx={{ marginTop: "16px" }}
+                ></BlogMedia>
+                <Typography variant="body4" color="#bfbfcf" fontSize="17px">
+                  It took a short while but I eventually settled on these
+                  designs. They were simple but unique enough to seperate them
+                  from their reference models. The different upgrade levels
+                  would have differing models. Since the models were simple, it
+                  was easy to make simple adjustments to them, having the best
+                  looking one be saved for last.
+                </Typography>
+              </BlogCard>
+              {/* <BlogCard
                 header="Production"
                 padding="16px"
                 headerColour="#cfcfff"
@@ -373,7 +458,7 @@ const UnnamedTDPage = () => {
                 <Typography variant="body4" color="#bfbfcf" fontSize="17px">
                   Content
                 </Typography>
-              </BlogCard>
+              </BlogCard> */}
             </Box>
           </Container>
         </Box>

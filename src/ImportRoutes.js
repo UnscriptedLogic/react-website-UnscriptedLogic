@@ -48,3 +48,8 @@ export { default as robloxtowerbattleslaodout } from "/unnamedtd/robloxtowerbatt
 export { default as utdGantt } from "/unnamedtd/utdGantt.png";
 export { default as entityDiagram } from "/unnamedtd/entityDiagram.png";
 export { default as buildingSystem } from "/unnamedtd/buildingSystem.png";
+export { default as scoutReference } from "/unnamedtd/scoutreference.png";
+export { default as turretref } from "/unnamedtd/turretref.png";
+export { default as sniperref } from "/unnamedtd/sniperref.png";
+export { default as tdmodels } from "/unnamedtd/tdmodels.png";
+export { default as scoutTowerPrompt } from "/unnamedtd/scoutTowerPrompt.png";

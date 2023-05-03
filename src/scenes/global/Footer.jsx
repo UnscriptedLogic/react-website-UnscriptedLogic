@@ -9,7 +9,6 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        height: "20vh",
         backgroundColor: "black",
         padding: "40px",
         display: "flex",
@@ -19,7 +18,13 @@ const Footer = () => {
         color: "white",
       }}
     >
-      <Box height="100%" display="flex" flexDirection="column" gap="10px">
+      <Box
+        height="100%"
+        display="flex"
+        flexDirection="column"
+        gap="10px"
+        justifyContent="flex-end"
+      >
         <Box display="flex" flexDirection="row" gap="10px">
           <EmailIcon fontSize="small" />
           <Typography color="white" fontSize="14px">
