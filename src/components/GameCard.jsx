@@ -24,18 +24,26 @@ const GameCard = ({
   genres,
   techUsed,
   submissionType,
+  submissionLink,
 }) => {
   return (
     <Card
       sx={{
-        width: 275,
+        width: 325,
+        minHeight: 350,
+        maxHeight: "auto",
         boxShadow: "0px 0px 5px",
         ":hover": {
           boxShadow: "0px 0px 10px",
         },
+        backgroundColor: "#252525",
       }}
     >
-      <CardActionArea>
+      <CardActionArea
+        onClick={() => {
+          window.location.href = submissionLink;
+        }}
+      >
         <Box position="relative">
           <CardMedia sx={{ height: 175 }} image={image} />
           <TechIconsCardHeader techUsed={techUsed} />

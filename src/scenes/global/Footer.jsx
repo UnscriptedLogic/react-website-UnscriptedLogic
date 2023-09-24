@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "black",
+          backgroundColor: "black",
         padding: "40px",
         display: "flex",
         alignSelf: "flex-end",

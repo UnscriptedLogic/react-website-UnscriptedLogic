@@ -31,6 +31,7 @@ export { default as stIcon } from "/stIcon.png";
 export { default as vIcon } from "/vIcon.png";
 export { default as cc2Icon } from "/cc2Icon.png";
 export { default as mlIcon } from "/mlIcon.png";
+export { default as diamonddepthsIcon } from "/diamondDepths.png";
 
 export { default as ggjIcon } from "/submissiontypes/ggjIcon.png";
 export { default as mjIcon } from "/submissiontypes/mjIcon.png";

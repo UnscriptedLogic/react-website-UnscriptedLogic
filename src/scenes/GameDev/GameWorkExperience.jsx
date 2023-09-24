@@ -19,11 +19,11 @@ const GameWorkExperience = () => {
           Work Experience
         </Typography>
         <EducationCard
-          name="Looking for Student Internship"
+          name="Children's Math Game Company"
           study="Game Developer Internship"
           studyRemarks="a self-secured internship with approval from the school"
-          year="2023 - ?"
-          status="Currently looking for an internship"
+          year="26 June 2023 - 24 November 2023"
+          status="Working as an intern"
         ></EducationCard>
       </Box>
     </Container>

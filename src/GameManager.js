@@ -5,6 +5,7 @@ import stIcon from "/stIcon.png";
 import vIcon from "/vIcon.png";
 import cc2Icon from "/cc2Icon.png";
 import mlIcon from "/mlIcon.png";
+import diamonddepthsIcon from "/diamondDepths.png";
 
 import ggjIcon from "/submissiontypes/ggjIcon.png";
 import mjIcon from "/submissiontypes/mjIcon.png";
@@ -149,10 +150,12 @@ class MinorGame extends Game {
     genres,
     techUsed,
     blogLink,
-    submissionTypes
+    submissionTypes,
+    submissionLink
   ) {
     super(name, desc, year, thumbnail, gameLink, genres, techUsed, blogLink);
     this.submissionTypes = submissionTypes;
+    this.submissionLink = submissionLink;
   }
 }
 
@@ -232,37 +235,52 @@ export const majorGames = [
 //Minor Games
 export const minorGames = [
   new MinorGame(
+    "Diamond Depths",
+    "A 2D platformer where instead of controlling the player, you control where the platforms are, building a path for your player in realtime.",
+    "2023",
+    diamonddepthsIcon,
+    "/",
+    [Genres.Platformer],
+    [Tech.Unity],
+    "theskilltree",
+    GameSubmissionType.GMTK,
+    "https://mypingo.itch.io/diamonddepths"
+  ),
+  new MinorGame(
     "The Skill Tree",
-    "A 2D tower defense game where the player branches out to farm for resources to upgrade their skill tree while defending the towers",
+    "A 2D tower defense game where the player branches out to farm for resources to upgrade their skill tree while defending the towers.",
     "2022",
     stIcon,
     "/",
     [Genres.Strategy, Genres.TowerDefense],
     [Tech.Unity, Tech.Illustrator],
     "theskilltree",
-    GameSubmissionType.SGJam
+    GameSubmissionType.SGJam,
+    "https://unscriptedlogic.itch.io/the-skill-tree"
   ),
   new MinorGame(
     "CC2: An Asset's Graveyard",
-    "A project built to mimic Cuboidal Control with better controls but with the integration of AWS",
+    "A project built to mimic Cuboidal Control with better controls but with the integration of AWS.",
     "2022",
     cc2Icon,
     "/",
     [Genres.Platformer],
     [Tech.Unity, Tech.AWS],
     "cc2",
-    GameSubmissionType.School
+    GameSubmissionType.School,
+    "https://unscriptedlogic.itch.io/cuboidal-control-2"
   ),
   new MinorGame(
     "Cuboidal Control",
-    "A simplified version of the popular game 'Getting Over It' by Bennett Foddy",
+    "A simplified version of the popular game 'Getting Over It' by Bennett Foddy.",
     "2020",
     ccIcon,
     "/",
     [Genres.Platformer],
     [Tech.Unity],
     "cuboidalcontrol",
-    GameSubmissionType.GMTK
+    GameSubmissionType.GMTK,
+    "https://unscriptedlogic.itch.io/cuboidal-control"
   ),
   new MinorGame(
     "Vizion",
@@ -273,7 +291,8 @@ export const minorGames = [
     [Genres.Puzzle, Genres.Horror],
     [Tech.Unity],
     "vizion",
-    GameSubmissionType.MiniJam
+    GameSubmissionType.MiniJam,
+    "https://unscriptedlogic.itch.io/vizion"
   ),
   new MinorGame(
     "Memory Looper",
@@ -284,7 +303,8 @@ export const minorGames = [
     [Genres.Puzzle, Genres.Platformer],
     [Tech.Unity],
     "memeorylooper",
-    GameSubmissionType.MixAndJam
+    GameSubmissionType.MixAndJam,
+    "https://unscriptedlogic.itch.io/memory-looper"
   ),
 ];
 

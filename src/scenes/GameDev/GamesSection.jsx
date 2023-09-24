@@ -67,7 +67,7 @@ const GamesSection = () => {
             justifyContent: "space-around",
             alignItems: "center",
             flexWrap: "wrap",
-            gap: "10px",
+            rowGap: "30px",
           }}
         >
           {minorGames.map((item, index) => {
@@ -81,6 +81,7 @@ const GamesSection = () => {
                 techUsed={item.techUsed}
                 blogLink={item.blogLink}
                 submissionType={item.submissionTypes}
+                submissionLink={item.submissionLink}
               ></GameCard>
             );
           })}
