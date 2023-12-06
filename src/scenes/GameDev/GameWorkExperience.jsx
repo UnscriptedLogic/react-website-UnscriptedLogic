@@ -19,7 +19,7 @@ const GameWorkExperience = () => {
           Work Experience
         </Typography>
         <EducationCard
-          name="Children's Math Game Company"
+          name="Smartli Pte Ltd"
           study="Game Developer Internship"
           studyRemarks="a self-secured internship with approval from the school"
           year="26 June 2023 - 24 November 2023"
