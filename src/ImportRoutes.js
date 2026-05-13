@@ -10,6 +10,7 @@ export { default as MajorGameCard } from "./components/MajorGameCard";
 export { default as ImageCard } from "./components/ImageCard";
 export { default as BlogCard } from "./components/BlogCard";
 export { default as BlogMedia } from "./components/BlogMedia";
+export { default as TilingText } from "./components/TilingText";
 
 //game dev stuff
 export { default as GameDevHome } from "./scenes/GameDev/GameDevHome";
@@ -22,6 +23,10 @@ export { default as UnnamedTD } from "./scenes/GameDev/Games/UnnamedTDPage";
 
 //web dev stuff
 export { default as WebDevHome } from "./scenes/WebDev/WebDevHome";
+
+//ui design stuff
+export { default as UIDesignerHome } from "./scenes/UIDesigner/UIDesigner";
+export { default as UIProjectButton } from "./components/uiprojectButton";
 
 //assets
 export { default as unnamedTDIcon } from "/unnamedtdIcon.png";
