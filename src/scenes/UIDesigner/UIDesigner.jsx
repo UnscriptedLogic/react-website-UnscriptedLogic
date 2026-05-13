@@ -3,8 +3,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { Box, Container, Typography, Card } from "@mui/material";
-import { TilingText, UIProjectButton } from "../../ImportRoutes";
+import { TilingText, UIProjectButton, Navbar } from "../../ImportRoutes";
 import { BluetoothAudio } from "@mui/icons-material";
+import zIndex from "@mui/material/styles/zIndex";
 
 //projects
 const projects = [
@@ -31,19 +32,45 @@ const UIDesignerHome = () => {
 
     const highlightColor = "#ffa200"; // Example highlight color
 
-    const startDelay = 0; // Delay before the animation starts (in seconds)
+    const startDelay = 0.5; // Delay before the animation starts (in seconds)
 
     useEffect(() => {
+        gsap.fromTo(
+            ".ui-designer-screen-transition-text-container",
+            {
+                height: "100%",
+            },
+            {
+                height: "4em",
+                duration: 0.5,
+                ease: "expo.out",
+            },
+        );
+
+        gsap.fromTo(
+            ".ui-designer-title-transition",
+            {
+                opacity: -1,
+                transform: "translate(-150%, -50%)",
+            },
+            {
+                opacity: 1,
+                transform: "translate(-50%, -50%)",
+                duration: 1,
+                ease: "expo.out",
+            },
+        );
+
         gsap.to(".ui-designer-screen-transition-1", {
-            x: "110%",
-            duration: 2,
+            x: "200%",
+            duration: 1.5,
             ease: "expo.out",
             delay: startDelay + 0.1,
             display: "none",
         });
         gsap.to(".ui-designer-screen-transition", {
-            x: "110%",
-            duration: 2,
+            x: "200%",
+            duration: 1.5,
             ease: "expo.out",
             delay: startDelay,
             display: "none",
@@ -54,12 +81,13 @@ const UIDesignerHome = () => {
         <Box
             sx={{
                 height: "100vh",
-                maxWidth: "100vh",
+                maxWidth: "100vw",
                 display: "flex",
                 flexDirection: "column",
                 overflow: "hidden",
             }}
         >
+            <Navbar sx={{ zIndex: 10, width: "100vw" }}></Navbar>
             <TilingText
                 text="UI DESIGNER |"
                 speed={10}
@@ -100,7 +128,7 @@ const UIDesignerHome = () => {
                         fontFamily="PlayPretend"
                         fontSize="4rem"
                     >
-                        ui/uix
+                        ui/ux
                         <br />
                         projects
                     </Typography>
@@ -110,7 +138,7 @@ const UIDesignerHome = () => {
                 sx={{
                     width: "16em",
                     marginLeft: "2em",
-                    marginTop: "300px",
+                    marginTop: "10em",
                     backgroundColor: "black",
                     boxShadow: `-10px 20px 0px ${highlightColor}`,
                     paddingTop: "12%",
@@ -247,7 +275,7 @@ const UIDesignerHome = () => {
                         left: "-10%",
                         width: "150%",
                         height: "100%",
-                        backgroundColor: "#070707",
+                        backgroundColor: "white",
                         zIndex: 9999,
                         //slight angle
                         transform: "skewX(-10deg)",
@@ -259,15 +287,45 @@ const UIDesignerHome = () => {
                         pointerEvents: "none",
                         position: "absolute",
                         top: 0,
-                        left: "-10%",
-                        width: "150%",
-                        height: "100%",
+                        // left: "-10%",
+                        width: "100vw",
+                        height: "100vh",
                         backgroundColor: highlightColor,
                         zIndex: 9999,
                         //slight angle
                         transform: "skewX(-10deg)",
+                        scale: "1.5 1.5",
                     }}
-                ></Box>
+                >
+                    <Box
+                        className="ui-designer-screen-transition-text-container"
+                        sx={{
+                            backgroundColor: "black",
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            boxShadow: `0 0 0px white`,
+                            width: "100%",
+                            height: "4em",
+                        }}
+                    >
+                        <Typography
+                            className="ui-designer-title-transition"
+                            sx={{
+                                color: "white",
+                                fontFamily: "PlayPretend",
+                                position: "absolute",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                fontSize: "4rem",
+                            }}
+                        >
+                            ROLE SWITCH
+                        </Typography>
+                    </Box>
+                </Box>
             </Box>
         </Box>
     );
