@@ -3,32 +3,20 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { Box, Container, Typography, Card } from "@mui/material";
-import { TilingText, UIProjectButton, Navbar } from "../../ImportRoutes";
+import {
+    TilingText,
+    UIProjectButton,
+    Navbar,
+    BackgroundFlash,
+} from "../../ImportRoutes";
 import { BluetoothAudio } from "@mui/icons-material";
 import zIndex from "@mui/material/styles/zIndex";
-
-//projects
-const projects = [
-    {
-        title: "Project 1",
-        description: "Description of project 1",
-    },
-    {
-        title: "Project 2",
-        description: "Description of project 2",
-    },
-    {
-        title: "Project 3",
-        description: "Description of project 3",
-    },
-    {
-        title: "Project 4",
-        description: "Description of project 4",
-    },
-];
+import { UIProjects } from "../../UIDesignManager";
 
 const UIDesignerHome = () => {
+    const flashRef = useRef(null);
     const [selectedIndex, setSelectedIndex] = useState(null);
+    let prevSelected;
 
     const highlightColor = "#ffa200"; // Example highlight color
 
@@ -84,7 +72,7 @@ const UIDesignerHome = () => {
                 maxWidth: "100vw",
                 display: "flex",
                 flexDirection: "column",
-                overflow: "hidden",
+                // overflow: "hidden",
             }}
         >
             <Navbar sx={{ zIndex: 10, width: "100vw" }}></Navbar>
@@ -118,7 +106,7 @@ const UIDesignerHome = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        marginLeft: "4em",
+                        marginLeft: "1em",
                     }}
                 >
                     <Typography
@@ -126,7 +114,7 @@ const UIDesignerHome = () => {
                         color="white"
                         className="ui-designer-text"
                         fontFamily="PlayPretend"
-                        fontSize="4rem"
+                        fontSize="3rem"
                     >
                         ui/ux
                         <br />
@@ -136,116 +124,156 @@ const UIDesignerHome = () => {
             </Box>
             <Box
                 sx={{
-                    width: "16em",
-                    marginLeft: "2em",
+                    width: "28em",
+                    marginLeft: "0em",
                     marginTop: "10em",
-                    backgroundColor: "black",
-                    boxShadow: `-10px 20px 0px ${highlightColor}`,
-                    paddingTop: "12%",
-                    paddingLeft: "2em",
-                    paddingBottom: "50%",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1em",
+                    paddingBottom: "20em",
                     transform: "rotate(-10deg)",
                     transformOrigin: "top left",
-                    zIndex: 0,
-                }}
-            >
-                {Array.from({ length: 4 }, (_, i) => (
-                    <UIProjectButton
-                        id={i}
-                        sx={{
-                            transform: "rotate(10deg)",
-                        }}
-                        key={i}
-                        isSelected={selectedIndex === i}
-                        onClick={(e) => {
-                            setSelectedIndex(i);
-
-                            //flash white and then back to highlight color
-                            gsap.fromTo(
-                                e.currentTarget,
-                                {
-                                    scaleX: 1.5,
-                                    scaleY: 0.5,
-                                    duration: 0,
-                                },
-                                {
-                                    scaleX: 1,
-                                    scaleY: 1,
-                                    duration: 0.5,
-                                    ease: "bounce.out",
-                                },
-                            );
-                        }}
-                        onHoverEnter={(e) => {
-                            gsap.to(e.currentTarget, {
-                                transform: `translate(${4 * (4 - i)}%, 4%) scale(1.1) rotate(10deg)`,
-                                duration: 0.1,
-                                ease: "expo.out",
-                            });
-                        }}
-                        onHoverLeave={(e) => {
-                            gsap.to(e.currentTarget, {
-                                scale: 1,
-                                transform: `translate(0%, 4%) scale(1) rotate(10deg)`,
-                                duration: 0.5,
-                                ease: "bounce.out",
-                            });
-                        }}
-                    />
-                ))}
-            </Box>
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "1em",
-                    width: "65%",
-                    height: "100%",
-                    margin: "0 4%",
-                    // backgroundColor: "black",
                     position: "fixed",
-                    //center it on the screen
-                    top: "70%",
-                    right: "0%",
-                    transform: "translate(0, -50%)",
+                    zIndex: 0,
+                    overflowY: "scroll",
+                    overflowX: "auto",
                 }}
             >
                 <Box
                     sx={{
-                        width: "100%",
-                        height: "100%",
-                        backgroundColor: "#333",
+                        position: "fixed",
+                        width: "60%",
+                        height: "200%",
+                        backgroundColor: "black",
+                        marginLeft: "1em",
+                        boxShadow: `-10px 20px 0px ${highlightColor}`,
                     }}
                 ></Box>
                 <Box
                     sx={{
-                        width: "100%",
-                        height: "70%",
-                        backgroundColor: "#070707",
                         display: "flex",
                         flexDirection: "column",
-                        gap: "1em",
+                        gap: "2em",
+                        paddingTop: "10em",
+                        paddingLeft: "2em",
                     }}
                 >
-                    <Box sx={{ margin: "1em" }}>
-                        <Typography
-                            variant="h5"
-                            color="white"
-                            fontFamily="PlayPretend"
-                        >
-                            {projects[selectedIndex]?.title}
-                        </Typography>
-                        <Typography
-                            variant="h5"
-                            color="white"
-                            fontFamily="PointRegular"
-                        >
-                            {projects[selectedIndex]?.description}
-                        </Typography>
+                    {Array.from({ length: UIProjects.length }, (_, i) => (
+                        <UIProjectButton
+                            id={i}
+                            label={UIProjects[i].name}
+                            thumbnail={UIProjects[i].thumbnail}
+                            sx={{
+                                transform: "rotate(10deg)",
+                            }}
+                            key={i}
+                            isSelected={selectedIndex === i}
+                            onClick={(e) => {
+                                setSelectedIndex(i);
+
+                                if (prevSelected !== i) {
+                                    flashRef.current.wipeAnimation();
+                                }
+
+                                prevSelected = i;
+
+                                gsap.fromTo(
+                                    e.currentTarget,
+                                    {
+                                        scaleX: 1.5,
+                                        scaleY: 0.5,
+                                        duration: 0,
+                                    },
+                                    {
+                                        scaleX: 1,
+                                        scaleY: 1,
+                                        duration: 0.5,
+                                        ease: "bounce.out",
+                                    },
+                                );
+                            }}
+                            onHoverEnter={(e) => {
+                                gsap.to(e.currentTarget, {
+                                    transform: `translate(20%, 6%) scale(1.1) rotate(10deg)`,
+                                    duration: 0.1,
+                                    ease: "expo.out",
+                                });
+                            }}
+                            onHoverLeave={(e) => {
+                                gsap.to(e.currentTarget, {
+                                    scale: 1,
+                                    transform: `translate(0%, 4%) scale(1) rotate(10deg)`,
+                                    duration: 0.5,
+                                    ease: "bounce.out",
+                                });
+                            }}
+                        />
+                    ))}
+                </Box>
+            </Box>
+            <Box
+                sx={{
+                    width: "auto",
+                    height: "calc(100vh - 8em)",
+                    display: "flex",
+                    justifyContent: "right",
+                    alignItems: "center",
+                    margin: "2em",
+                }}
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "2em",
+                        width: "65%",
+                        height: "100%",
+                    }}
+                >
+                    <Box
+                        sx={{
+                            width: "100%",
+                            backgroundColor: "#333",
+                        }}
+                    >
+                        {UIProjects[selectedIndex]?.displayBlock}
                     </Box>
+                    <Box
+                        sx={{
+                            width: "100%",
+                            backgroundColor: "#070707",
+                            display: "flex",
+                            flexGrow: 1,
+                            flexDirection: "column",
+                            gap: "1em",
+                        }}
+                    >
+                        <Box sx={{ margin: "1em" }}>
+                            <Typography
+                                variant="h5"
+                                color="white"
+                                fontFamily="PlayPretend"
+                                sx={{ letterSpacing: "2px" }}
+                            >
+                                {UIProjects[selectedIndex]?.name}
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                color="#d3d3d3"
+                                fontFamily="PointRegular"
+                                sx={{ width: "100%", whiteSpace: "pre-line" }}
+                            >
+                                {UIProjects[selectedIndex]?.desc}
+                            </Typography>
+                        </Box>
+                    </Box>
+                    <BackgroundFlash
+                        ID="test"
+                        ref={flashRef}
+                        sx={{
+                            backgroundColor: highlightColor,
+                        }}
+                        ssx={{
+                            backgroundColor: "black",
+                        }}
+                    ></BackgroundFlash>
                 </Box>
             </Box>
             <Box
@@ -256,7 +284,7 @@ const UIDesignerHome = () => {
                     bottom: "0%",
                     left: "0%",
                     width: "200vw",
-                    height: "8em",
+                    height: "6em",
                     backgroundColor: highlightColor,
                     boxShadow: `0 20px 0px black`,
                 }}

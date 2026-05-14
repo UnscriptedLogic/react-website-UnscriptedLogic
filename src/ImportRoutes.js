@@ -27,6 +27,7 @@ export { default as WebDevHome } from "./scenes/WebDev/WebDevHome";
 //ui design stuff
 export { default as UIDesignerHome } from "./scenes/UIDesigner/UIDesigner";
 export { default as UIProjectButton } from "./components/uiprojectButton";
+export { default as BackgroundFlash } from "./components/BackgroundFlash";
 
 //assets
 export { default as unnamedTDIcon } from "/unnamedtdIcon.png";

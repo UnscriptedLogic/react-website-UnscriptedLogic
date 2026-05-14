@@ -1,10 +1,11 @@
 import React from "react";
 import gsap from "gsap";
 import { Box, Card, Container, Typography } from "@mui/material";
-import { tdmodels } from "../ImportRoutes";
 
 const UIProjectButton = ({
     id,
+    label,
+    thumbnail,
     sx,
     isSelected,
     onClick,
@@ -14,8 +15,8 @@ const UIProjectButton = ({
     return (
         <Card
             sx={{
-                height: "100px",
-                width: "300px",
+                height: "8em",
+                width: "16em",
                 backgroundColor: "#252525",
                 borderRadius: "0px",
                 boxShadow: "-10px 10px 0px black",
@@ -58,12 +59,11 @@ const UIProjectButton = ({
             ></Box>
             <Box
                 component="img"
-                src={tdmodels}
+                src={thumbnail}
                 sx={{
                     display: "flex",
                     alignItems: "center",
                     width: "100%",
-                    transform: "translateY(-25%)",
                 }}
             ></Box>
             <Box
@@ -81,7 +81,7 @@ const UIProjectButton = ({
                     fontWeight={0}
                     sx={{ color: "white" }}
                 >
-                    Project Name
+                    {label}
                 </Typography>
             </Box>
         </Card>
