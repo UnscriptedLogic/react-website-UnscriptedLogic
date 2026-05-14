@@ -215,7 +215,7 @@ const UIDesignerHome = () => {
                     display: "flex",
                     justifyContent: "right",
                     alignItems: "center",
-                    margin: "2em",
+                    margin: "2em 4em 0 0",
                 }}
             >
                 <Box

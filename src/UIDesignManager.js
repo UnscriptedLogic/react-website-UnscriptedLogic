@@ -42,13 +42,13 @@ export class UIProject extends Game {
 export const UIProjects = [
     new UIProject({
         name: "NTE: Recreation",
-        desc: "To further hone and develop my skills in UI animation and design, I looked to games like Neverness To Everness and Mihoyo's games for inspiration as they feature UI designs that I really like.",
+        desc: "To further hone and develop my skills in UI animation and design, I looked to games like Neverness To Everness and Mihoyo's games for inspiration as they feature UI designs that I really like. \n\nIt's here where I started adopting the concept of layered transitions which is simlpy the process of creating a whole widget for transitions and firing an event during the apex of the transition to instantiate the UI required, allowing for re-usability and rapid development.",
         thumbnail: nteThumbnail,
         displayBlock: nteRecreation(),
     }),
     new UIProject({
         name: "YouTube Tutorials",
-        desc: "The lack of good UE5 UI design and animation tutorials was evident during the development of Auto Pet Racers. So I started making some.",
+        desc: "The lack of good Unreal Engine 5 UI design and animation tutorials was evident during the development of Auto Pet Racers. So I started making some in my sandbox project. \n\nHere I stocked up on useful functions, libraries and techniques that will aid me in UI shaders and design in whatever project I take part in. Things like primitive shape shaders for lesser texture draw overhead and for finer details, tiling and UV manipulation and anti-stretching techniques regardless the screen size.\n\nAnd why not share some with the rest of the world while I'm at it?",
         thumbnail: tutorialThumbnail,
         displayBlock: tutorials(),
     }),
