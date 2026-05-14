@@ -56,7 +56,7 @@ export const UIProjects = [
         name: "Auto Pet Racers",
         desc: `A Steam released Unreal Engine 5 project that features one of my better UI practices. Utilizing the tweening library XI Tween, this project contains transitions, particles, shaders and camera animations to enable the overall UI experience. I learned a lot in practical use cases of Ui animations and this is still my favourite project in terms of UI.
 
-        Special thanks to Game Dev Guild for hosting public play test sessions that enabled me to gather valuable information from real players during the development of this project.
+        Special thanks to Game Dev Guild for hosting public play test sessions that enabled me to gather valuable information from real players infront of me as well as from other local game developers during the development of this project.
         `,
         thumbnail: aprThumbnail,
         displayBlock: autopetracers(),
