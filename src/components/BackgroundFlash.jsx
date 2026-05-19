@@ -18,7 +18,7 @@ const BackgroundFlash = forwardRef(
                     height: "0%",
                     duration: "0.5",
                     ease: "expo.out",
-                    delay: 0,
+                    delay: 0.25,
                 },
             );
 
@@ -31,7 +31,7 @@ const BackgroundFlash = forwardRef(
                     height: "0%",
                     duration: "0.5",
                     ease: "expo.out",
-                    delay: 0.1,
+                    delay: 0.35,
                 },
             );
         };

@@ -1,5 +1,11 @@
 import { Box, Typography, CardMedia, Button, Card } from "@mui/material";
-import { Navbar, Footer, UIProjectButton } from "../../ImportRoutes";
+import {
+    Navbar,
+    Footer,
+    UIProjectButton,
+    TilingSquares,
+    ScreenTransition,
+} from "../../ImportRoutes";
 import { GSProjects } from "../../GSProgrammerManager";
 import gsap from "gsap";
 import aprVideo from "/uidesign/autopetracers/apr_video1.mp4";
@@ -13,16 +19,26 @@ const GSDesignerHome = () => {
     return (
         <Box>
             <Navbar sx={{}} />
+            <TilingSquares
+                rows={20}
+                speed={5}
+                rectangleWidth={400}
+                rectangleHeight={100}
+                gap={10}
+                rowGap={10}
+                opacity={0.5}
+                angle={-35}
+                color="rgb(255,255,255,.1)"
+                sx={{ bgcolor: "#001023" }}
+            />
             <Box
                 sx={{
-                    bgcolor: "#000914",
                     width: "100vw",
                     height: "100vh",
                     display: "grid",
                     gridTemplateColumns: "repeat(10, 1fr)",
                     gridTemplateRows: "repeat(10, 1fr)",
                     gap: "10px",
-                    boxSizing: "border-box",
                 }}
             >
                 <Box
@@ -47,7 +63,7 @@ const GSDesignerHome = () => {
                     >
                         <Typography
                             fontFamily={"PlayPretend"}
-                            fontSize={26}
+                            fontSize={"1.5rem"}
                             sx={{ color: "white" }}
                         >
                             Gameplay and Systems Programmer
@@ -226,6 +242,7 @@ const GSDesignerHome = () => {
                     </Box>
                 </Box>
             </Box>
+            <ScreenTransition title="PROGRAMMER" color="#63ADFF" />
         </Box>
     );
 };

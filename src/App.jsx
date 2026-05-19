@@ -10,11 +10,15 @@ import {
     BlogPage,
     UnnamedTD,
     GSDesignerHome,
+    AssetPreloader,
+    DesktopNotice,
 } from "./ImportRoutes";
 
 const App = () => {
     return (
         <Box>
+            <AssetPreloader />
+            <DesktopNotice />
             {/* <Navbar /> */}
             <Routes>
                 <Route path="/" element={<GameDevHome />} />

@@ -11,6 +11,10 @@ export { default as ImageCard } from "./components/ImageCard";
 export { default as BlogCard } from "./components/BlogCard";
 export { default as BlogMedia } from "./components/BlogMedia";
 export { default as TilingText } from "./components/TilingText";
+export { default as TilingSquares } from "./components/TilingSquares";
+export { default as ScreenTransition } from "./components/ScreenTransition";
+export { default as AssetPreloader } from "./components/AssetPreloader";
+export { default as DesktopNotice } from "./components/DesktopNotice";
 
 //game dev stuff
 export { default as GameDevHome } from "./scenes/GameDev/GameDevHome";
