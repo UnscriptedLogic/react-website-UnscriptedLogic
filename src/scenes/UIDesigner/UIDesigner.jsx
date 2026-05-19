@@ -16,7 +16,7 @@ import { UIProjects } from "../../UIDesignManager";
 const UIDesignerHome = () => {
     const flashRef = useRef(null);
     const [selectedIndex, setSelectedIndex] = useState(null);
-    let prevSelected;
+    let prevSelected = 0;
 
     const highlightColor = "#ffa200"; // Example highlight color
 

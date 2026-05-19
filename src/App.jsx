@@ -9,6 +9,7 @@ import {
     Footer,
     BlogPage,
     UnnamedTD,
+    GSDesignerHome,
 } from "./ImportRoutes";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/gamedev" element={<GameDevHome />} />
                 <Route path="/webdev" element={<WebDevHome />} />
                 <Route path="/uidesigner" element={<UIDesignerHome />} />
+                <Route path="/gsdesigner" element={<GSDesignerHome />} />
                 {/* <Route path="/blog" /> */}
                 <Route
                     path="/blog/unnamedtd"

@@ -14,10 +14,24 @@ const Navbar = ({ sx }) => {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            gap="10px"
-            padding="10px"
+            padding="4px"
             sx={{ backgroundColor: "black", ...sx }}
         >
+            <Button variant="text" onClick={() => changePage("gsdesigner")}>
+                <Typography variant="body3" color="#efefef">
+                    Gameplay Programmer
+                </Typography>
+            </Button>
+            <Divider
+                component="div"
+                role="presentation"
+                orientation="vertical"
+                variant="middle"
+                flexItem
+                sx={{
+                    borderColor: "#5f5f5f",
+                }}
+            />
             <Button variant="text" onClick={() => changePage("gamedev")}>
                 <Typography variant="body3" color="#efefef">
                     Game Developer

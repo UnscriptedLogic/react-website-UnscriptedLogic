@@ -29,6 +29,8 @@ export { default as UIDesignerHome } from "./scenes/UIDesigner/UIDesigner";
 export { default as UIProjectButton } from "./components/uiprojectButton";
 export { default as BackgroundFlash } from "./components/BackgroundFlash";
 
+export { default as GSDesignerHome } from "./scenes/GameProgrammer/GSDesignerHome";
+
 //assets
 export { default as unnamedTDIcon } from "/unnamedtdIcon.png";
 export { default as dtIcon } from "/dtIcon.png";
@@ -60,3 +62,5 @@ export { default as turretref } from "/unnamedtd/turretref.png";
 export { default as sniperref } from "/unnamedtd/sniperref.png";
 export { default as tdmodels } from "/unnamedtd/tdmodels.png";
 export { default as scoutTowerPrompt } from "/unnamedtd/scoutTowerPrompt.png";
+
+export { default as aprVideo } from "/uidesign/autopetracers/apr_video1.mp4";

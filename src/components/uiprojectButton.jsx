@@ -15,11 +15,12 @@ const UIProjectButton = ({
     return (
         <Card
             sx={{
+                position: "relative",
                 height: "8em",
                 width: "16em",
                 backgroundColor: "#252525",
                 borderRadius: "0px",
-                boxShadow: "-10px 10px 0px black",
+                // boxShadow: "-10px 10px 0px black",
                 ...sx,
             }}
             onClick={(e) => {
@@ -54,7 +55,6 @@ const UIProjectButton = ({
                     height: "100%",
                     backgroundColor: "white",
                     opacity: 0,
-                    zIndex: 1,
                 }}
             ></Box>
             <Box
@@ -76,11 +76,7 @@ const UIProjectButton = ({
                     padding: "10px",
                 }}
             >
-                <Typography
-                    fontFamily="PointRegular"
-                    fontWeight={0}
-                    sx={{ color: "white" }}
-                >
+                <Typography fontFamily="PointRegular" sx={{ color: "white" }}>
                     {label}
                 </Typography>
             </Box>
