@@ -18,7 +18,7 @@ import {
 const App = () => {
     return (
         <Box>
-            {/* <AssetPreloader /> */}
+            <AssetPreloader />
             <DesktopNotice />
             {/* <Navbar /> */}
             <Routes>
