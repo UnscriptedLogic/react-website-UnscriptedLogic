@@ -164,8 +164,4 @@ const Autopetracers = ({ onReady } = {}) => {
     );
 };
 
-export {
-    Autopetracers as autopetracers,
-    NteRecreation as nteRecreation,
-    Tutorials as tutorials,
-};
+export { Autopetracers, NteRecreation, Tutorials };

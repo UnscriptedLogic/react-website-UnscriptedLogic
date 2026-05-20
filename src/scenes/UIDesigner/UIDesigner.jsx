@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { useRef } from "react";
 import { Box, Typography } from "@mui/material";
+import TechIconsCardHeader from "../../components/TechIconsCardHeader";
 import {
     TilingText,
     UIProjectButton,
@@ -216,7 +217,7 @@ const UIDesignerHome = () => {
                             gap: "1em",
                         }}
                     >
-                        <Box sx={{ margin: "1em" }}>
+                        <Box sx={{ margin: "1em", position: "relative" }}>
                             <Typography
                                 variant="h5"
                                 color="white"
@@ -225,6 +226,9 @@ const UIDesignerHome = () => {
                             >
                                 {selectedProject?.name}
                             </Typography>
+                            <TechIconsCardHeader
+                                techUsed={selectedProject?.techUsed}
+                            />
                             <Typography
                                 variant="h6"
                                 color="#d3d3d3"

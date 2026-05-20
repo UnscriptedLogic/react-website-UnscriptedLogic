@@ -1,8 +1,9 @@
 import { Game } from "./GameManager";
+import { Tech } from "./Manager";
 import {
-    autopetracers,
-    nteRecreation,
-    tutorials,
+    Autopetracers,
+    NteRecreation,
+    Tutorials,
 } from "./scenes/UIDesigner/uiProjectComponents";
 import nteThumbnail from "/uidesign/NTERecreation/Thumbnail.png?url";
 import tutorialThumbnail from "/uidesign/Tutorials/TransitionThumbnail.png?url";
@@ -44,13 +45,15 @@ export const UIProjects = [
         name: "NTE: Recreation",
         desc: "To further hone and develop my skills in UI animation and design, I looked to games like Neverness To Everness and Mihoyo's games for inspiration as they feature UI designs that I really like. \n\nIt's here where I started adopting the concept of layered transitions which is simlpy the process of creating a whole widget for transitions and firing an event during the apex of the transition to instantiate the UI required, allowing for re-usability and rapid development.",
         thumbnail: nteThumbnail,
-        displayComponent: nteRecreation,
+        techUsed: [Tech.UnrealEngine, Tech.Figma],
+        displayComponent: NteRecreation,
     }),
     new UIProject({
         name: "YouTube Tutorials",
         desc: "The lack of good Unreal Engine 5 UI design and animation tutorials was evident during the development of Auto Pet Racers. So I started making some in my sandbox project. \n\nHere I stocked up on useful functions, libraries and techniques that will aid me in UI shaders and design in whatever project I take part in. Things like primitive shape shaders for lesser texture draw overhead and for finer details, tiling and UV manipulation and anti-stretching techniques regardless the screen size.\n\nAnd why not share some with the rest of the world while I'm at it?",
         thumbnail: tutorialThumbnail,
-        displayComponent: tutorials,
+        techUsed: [Tech.UnrealEngine, Tech.Figma],
+        displayComponent: Tutorials,
     }),
     new UIProject({
         name: "Auto Pet Racers",
@@ -59,7 +62,8 @@ export const UIProjects = [
         Special thanks to Game Dev Guild for hosting public play test sessions that enabled me to gather valuable information from real players infront of me as well as from other local game developers during the development of this project.
         `,
         thumbnail: aprThumbnail,
-        displayComponent: autopetracers,
+        techUsed: [Tech.UnrealEngine, Tech.Figma],
+        displayComponent: Autopetracers,
     }),
     // new UIProject({
     //     name: "Momentum Mayhem",

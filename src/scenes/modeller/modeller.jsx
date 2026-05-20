@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import { ModellingProjects } from "../../ModellerManager";
 
-const modeller = () => {
+const Modeller = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
     const selectedProject = ModellingProjects[selectedIndex];
@@ -324,12 +324,14 @@ const modeller = () => {
                                         "background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease",
                                     "&:hover": {
                                         bgcolor: "#10a138",
-                                        transform: "translate(-0.18rem, -0.18rem)",
+                                        transform:
+                                            "translate(-0.18rem, -0.18rem)",
                                         boxShadow: "0.65rem 0.65rem 0 #171717",
                                     },
                                     "&:active": {
                                         bgcolor: "#0a6d24",
-                                        transform: "translate(0.22rem, 0.22rem) scale(0.98)",
+                                        transform:
+                                            "translate(0.22rem, 0.22rem) scale(0.98)",
                                         boxShadow: "0.2rem 0.2rem 0 #171717",
                                     },
                                 }}
@@ -354,7 +356,13 @@ const modeller = () => {
                 open={isProjectModalOpen}
                 onClose={() => setIsProjectModalOpen(false)}
             >
-                <Box sx={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "1.25rem",
+                    }}
+                >
                     <Typography
                         sx={{
                             color: "#fff",
@@ -410,4 +418,4 @@ const modeller = () => {
     );
 };
 
-export default modeller;
+export default Modeller;
