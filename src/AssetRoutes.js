@@ -12,9 +12,14 @@ export { default as tutorialYT } from "/uidesign/Tutorials/YoutubeScreenshot.png
 export { default as aprMainUI } from "/uidesign/autopetracers/apr_mainUI.png";
 export { default as aprShowcase } from "/uidesign/autopetracers/apr_showcase.mp4";
 export { default as aprShowcase2 } from "/uidesign/autopetracers/apr_showcase2.mp4";
-export { default as rotr_video } from "/uidesign/rotr/rotr_video.mp4";
-export { default as rotr_image4 } from "/uidesign/rotr/rotr_image4.png";
 export { default as utd_video } from "/uidesign/unnamedtd/utd_video.mp4";
+
+//Role of the rank
+export { default as rotr_video } from "/uidesign/rotr/rotr_video.mp4";
+export { default as rotr_image1 } from "/uidesign/rotr/rotr_image1.png";
+export { default as rotr_image2 } from "/uidesign/rotr/rotr_image2.png";
+export { default as rotr_image3 } from "/uidesign/rotr/rotr_image3.png";
+export { default as rotr_image4 } from "/uidesign/rotr/rotr_image4.png";
 
 export { default as unnamedTDIcon } from "/unnamedtdIcon.png";
 export { default as dtIcon } from "/dtIcon.png";

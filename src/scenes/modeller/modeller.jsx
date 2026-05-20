@@ -8,6 +8,87 @@ import {
 import React, { useState } from "react";
 import { ModellingProjects } from "../../ModellerManager";
 
+const getMediaSrc = (media) => (typeof media === "string" ? media : media?.src);
+const getMediaCaption = (media) =>
+    typeof media === "string" ? undefined : media?.caption;
+const getMediaType = (media, fallbackType) =>
+    typeof media === "string" ? fallbackType : (media?.type ?? fallbackType);
+
+const DetailMediaItem = ({ media, index, fallbackType, alt }) => {
+    const src = getMediaSrc(media);
+    const caption = getMediaCaption(media);
+    const type = getMediaType(media, fallbackType);
+    const captionSide = index % 2 === 0 ? "left" : "right";
+    const isCaptionLeft = captionSide === "left";
+
+    if (!src) {
+        return null;
+    }
+
+    return (
+        <Box
+            sx={{
+                position: "relative",
+                width: "100%",
+                maxHeight: "28rem",
+                bgcolor: "#050505",
+                overflow: "hidden",
+            }}
+        >
+            <Box
+                component={type === "video" ? "video" : "img"}
+                src={src}
+                alt={type === "video" ? undefined : alt}
+                controls={type === "video" ? true : undefined}
+                sx={{
+                    display: "block",
+                    width: "100%",
+                    maxHeight: "28rem",
+                    objectFit: "contain",
+                    bgcolor: "#050505",
+                }}
+            />
+            {caption ? (
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: 0,
+                        bottom: 0,
+                        [captionSide]: 0,
+                        width: { xs: "74%", sm: "58%", md: "46%" },
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: isCaptionLeft
+                            ? "flex-start"
+                            : "flex-end",
+                        px: { xs: "1rem", md: "1.4rem" },
+                        py: "1rem",
+                        boxSizing: "border-box",
+                        background: isCaptionLeft
+                            ? "linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.58) 46%, rgba(0,0,0,0) 100%)"
+                            : "linear-gradient(270deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.58) 46%, rgba(0,0,0,0) 100%)",
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            color: "#fff",
+                            fontFamily: "PointRegular",
+                            fontSize: { xs: "0.95rem", md: "1.2rem" },
+                            lineHeight: 1.25,
+                            maxWidth: "18rem",
+                            textAlign: isCaptionLeft ? "left" : "right",
+                            textShadow: "0 0.1rem 0.35rem rgba(0,0,0,0.7)",
+                            whiteSpace: "break-spaces",
+                        }}
+                    >
+                        {caption}
+                    </Typography>
+                </Box>
+            ) : null}
+        </Box>
+    );
+};
+
 const Modeller = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
@@ -375,7 +456,7 @@ const Modeller = () => {
                     </Typography>
                     <Typography
                         sx={{
-                            color: "#e5e5e5",
+                            color: "#bfbfbf",
                             fontFamily: "PointRegular",
                             fontSize: { xs: "1rem", md: "1.25rem" },
                             whiteSpace: "pre-line",
@@ -383,32 +464,37 @@ const Modeller = () => {
                     >
                         {selectedProject?.details ?? selectedProject?.desc}
                     </Typography>
-                    {selectedProject?.detailVideos?.map((video) => (
-                        <Box
-                            component="video"
-                            key={video}
-                            src={video}
-                            controls
-                            sx={{
-                                width: "100%",
-                                maxHeight: "28rem",
-                                bgcolor: "#050505",
-                                objectFit: "contain",
-                            }}
+                    {selectedProject?.detailMedia?.map((media, i) => (
+                        <DetailMediaItem
+                            key={getMediaSrc(media) ?? `detail-media-${i}`}
+                            media={media}
+                            index={i}
+                            fallbackType="video"
+                            alt={selectedProject?.name}
                         />
                     ))}
-                    {selectedProject?.detailImages?.map((image) => (
-                        <Box
-                            component="img"
-                            key={image}
-                            src={image}
+                    {selectedProject?.detailVideos?.map((video, i) => (
+                        <DetailMediaItem
+                            key={getMediaSrc(video) ?? `detail-video-${i}`}
+                            media={video}
+                            index={
+                                (selectedProject?.detailMedia?.length ?? 0) + i
+                            }
+                            fallbackType="video"
                             alt={selectedProject?.name}
-                            sx={{
-                                width: "100%",
-                                maxHeight: "28rem",
-                                objectFit: "contain",
-                                bgcolor: "#050505",
-                            }}
+                        />
+                    ))}
+                    {selectedProject?.detailImages?.map((image, i) => (
+                        <DetailMediaItem
+                            key={getMediaSrc(image) ?? `detail-image-${i}`}
+                            media={image}
+                            index={
+                                (selectedProject?.detailMedia?.length ?? 0) +
+                                (selectedProject?.detailVideos?.length ?? 0) +
+                                i
+                            }
+                            fallbackType="image"
+                            alt={selectedProject?.name}
                         />
                     ))}
                 </Box>

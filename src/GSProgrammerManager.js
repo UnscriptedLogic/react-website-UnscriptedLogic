@@ -21,6 +21,7 @@ export class GSProject extends Game {
         video,
         details,
         detailImages,
+        detailMedia,
         detailVideos,
     }) {
         super(
@@ -39,6 +40,7 @@ export class GSProject extends Game {
         this.video = video;
         this.details = details;
         this.detailImages = detailImages ?? [];
+        this.detailMedia = detailMedia ?? [];
         this.detailVideos = detailVideos ?? [];
     }
 }
