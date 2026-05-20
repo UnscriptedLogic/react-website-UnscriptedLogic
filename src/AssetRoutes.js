@@ -1,6 +1,7 @@
 export { default as aprVideo } from "/uidesign/autopetracers/apr_video1.mp4";
 export { default as aprThumbnail } from "/uidesign/autopetracers/apr_thumbnail.png";
 export { default as mmVideo } from "/uidesign/momentummayhem/mm_trailer.mp4";
+export { default as mm_graphics } from "/uidesign/momentummayhem/mm_video2.mp4";
 export { default as mmThumbnail } from "/uidesign/momentummayhem/mm_thumbnail.png";
 export { default as nteThumbnail } from "/uidesign/NTERecreation/Thumbnail.png?url";
 export { default as tutorialThumbnail } from "/uidesign/Tutorials/TransitionThumbnail.png?url";
@@ -11,6 +12,9 @@ export { default as tutorialYT } from "/uidesign/Tutorials/YoutubeScreenshot.png
 export { default as aprMainUI } from "/uidesign/autopetracers/apr_mainUI.png";
 export { default as aprShowcase } from "/uidesign/autopetracers/apr_showcase.mp4";
 export { default as aprShowcase2 } from "/uidesign/autopetracers/apr_showcase2.mp4";
+export { default as rotr_video } from "/uidesign/rotr/rotr_video.mp4";
+export { default as rotr_image4 } from "/uidesign/rotr/rotr_image4.png";
+export { default as utd_video } from "/uidesign/unnamedtd/utd_video.mp4";
 
 export { default as unnamedTDIcon } from "/unnamedtdIcon.png";
 export { default as dtIcon } from "/dtIcon.png";

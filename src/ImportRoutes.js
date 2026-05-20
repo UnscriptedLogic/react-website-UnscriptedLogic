@@ -15,6 +15,7 @@ export { default as TilingSquares } from "./components/TilingSquares";
 export { default as ScreenTransition } from "./components/ScreenTransition";
 export { default as AssetPreloader } from "./components/AssetPreloader";
 export { default as DesktopNotice } from "./components/DesktopNotice";
+export { default as ProjectModal } from "./components/ProjectModal";
 
 //game dev stuff
 export { default as GameDevHome } from "./scenes/GameDev/GameDevHome";
@@ -33,7 +34,11 @@ export { default as UIDesignerHome } from "./scenes/UIDesigner/UIDesigner";
 export { default as UIProjectButton } from "./components/uiprojectButton";
 export { default as BackgroundFlash } from "./components/BackgroundFlash";
 
+//gameplay
 export { default as GSDesignerHome } from "./scenes/GameProgrammer/GSDesignerHome";
+
+//3D modeller
+export { default as Modeller } from "./scenes/modeller/modeller";
 
 //assets
 export { default as unnamedTDIcon } from "/unnamedtdIcon.png";

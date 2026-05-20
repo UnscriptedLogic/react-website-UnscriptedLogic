@@ -1,10 +1,11 @@
-import { Box, Typography, CardMedia, Button, Card } from "@mui/material";
+import { Box, Typography, CardMedia, Button } from "@mui/material";
 import {
     Navbar,
     Footer,
     UIProjectButton,
     TilingSquares,
     ScreenTransition,
+    ProjectModal,
 } from "../../ImportRoutes";
 import { GSProjects } from "../../GSProgrammerManager";
 import gsap from "gsap";
@@ -13,6 +14,7 @@ import React, { useEffect, useState } from "react";
 
 const GSDesignerHome = () => {
     const [selectedIndex, setSelectedIndex] = useState(null);
+    const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
     const selectedProject = GSProjects[selectedIndex ?? 0];
     let prevSelected = 0;
 
@@ -128,6 +130,7 @@ const GSDesignerHome = () => {
                                 sx={{}}
                                 onClick={(e) => {
                                     setSelectedIndex(i);
+                                    setIsProjectModalOpen(false);
 
                                     gsap.fromTo(
                                         e.currentTarget,
@@ -166,25 +169,28 @@ const GSDesignerHome = () => {
                 <Box
                     sx={{
                         position: "relative",
-                        bgcolor: "#203569",
-                        gridColumn: "4 / span 7",
+                        bgcolor: "#000000",
+                        gridColumn: "3 / span 8",
                         gridRow: "span 9",
                         overflow: "hidden",
+                        display: "grid",
+                        gridTemplateColumns:
+                            "minmax(17rem, 30%) minmax(0, 1fr)",
+                        // p: "1rem",
+                        boxSizing: "border-box",
                     }}
                 >
                     <Box
                         sx={{
-                            position: "absolute",
-                            top: "0",
                             bgcolor: "white",
-                            width: "30%",
-                            height: "calc(100% - 60px)",
-                            borderRadius: "0 6em 0 0",
                             padding: "30px",
                             display: "flex",
                             flexDirection: "column",
                             gap: "1em",
                             zIndex: "1",
+                            minHeight: 0,
+                            overflowY: "auto",
+                            boxSizing: "border-box",
                         }}
                     >
                         <Typography variant="h3" fontFamily={"Point"}>
@@ -211,24 +217,57 @@ const GSDesignerHome = () => {
                         >
                             {selectedProject.desc}
                         </Typography>
-                        <Card
+                        <Button
+                            onClick={() => setIsProjectModalOpen(true)}
                             sx={{
                                 display: "flex",
                                 justifyContent: "center",
                                 alignItems: "center",
+                                width: "100%",
+                                borderRadius: "4px",
+                                border: "2px solid #171717",
+                                bgcolor: "#63ADFF",
+                                color: "#07111f",
+                                py: "0.8rem",
+                                boxShadow: "-0.35rem 0.35rem 0 #171717",
+                                textTransform: "none",
+                                transition:
+                                    "background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease",
+                                "&:hover": {
+                                    bgcolor: "#8cc4ff",
+                                    transform: "translate(0.16rem, -0.16rem)",
+                                    boxShadow: "-0.5rem 0.5rem 0 #171717",
+                                },
+                                "&:active": {
+                                    bgcolor: "#4d9be8",
+                                    transform: "translate(-0.1rem, 0.1rem) scale(0.98)",
+                                    boxShadow: "-0.18rem 0.18rem 0 #171717",
+                                },
                             }}
                         >
-                            <Typography>Hello</Typography>
-                        </Card>
+                            <Typography
+                                fontFamily={"PointRegular"}
+                                sx={{
+                                    color: "inherit",
+                                    fontSize: "1.1rem",
+                                    lineHeight: 1,
+                                }}
+                            >
+                                Learn More
+                            </Typography>
+                        </Button>
                     </Box>
                     <Box
                         sx={{
-                            position: "absolute",
-                            top: "0",
-                            bgcolor: "white",
+                            bgcolor: "#05070d",
                             width: "100%",
                             height: "100%",
+                            minHeight: 0,
                             overflow: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            boxSizing: "border-box",
                         }}
                     >
                         <CardMedia
@@ -237,11 +276,78 @@ const GSDesignerHome = () => {
                             autoPlay
                             loop
                             muted
-                            sx={{ height: "100%", objectFit: "cover" }}
+                            playsInline
+                            sx={{
+                                width: "100%",
+                                height: "100%",
+                                maxHeight: "100%",
+                                aspectRatio: "16 / 9",
+                                objectFit: "cover",
+                                bgcolor: "#05070d",
+                            }}
                         />
                     </Box>
                 </Box>
             </Box>
+            <ProjectModal
+                open={isProjectModalOpen}
+                onClose={() => setIsProjectModalOpen(false)}
+                sx={{
+                    borderColor: "#63ADFF",
+                    borderBottomColor: "#d8d8d8",
+                }}
+            >
+                <Box sx={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                    <Typography
+                        sx={{
+                            color: "#fff",
+                            fontFamily: "PointBlack",
+                            fontSize: { xs: "1.8rem", md: "2.8rem" },
+                            lineHeight: 1,
+                        }}
+                    >
+                        {selectedProject?.name}
+                    </Typography>
+                    <Typography
+                        sx={{
+                            color: "#e5e5e5",
+                            fontFamily: "PointRegular",
+                            fontSize: { xs: "1rem", md: "1.25rem" },
+                            whiteSpace: "pre-line",
+                        }}
+                    >
+                        {selectedProject?.details ?? selectedProject?.desc}
+                    </Typography>
+                    {selectedProject?.detailVideos?.map((video) => (
+                        <Box
+                            component="video"
+                            key={video}
+                            src={video}
+                            controls
+                            sx={{
+                                width: "100%",
+                                maxHeight: "28rem",
+                                bgcolor: "#050505",
+                                objectFit: "contain",
+                            }}
+                        />
+                    ))}
+                    {selectedProject?.detailImages?.map((image) => (
+                        <Box
+                            component="img"
+                            key={image}
+                            src={image}
+                            alt={selectedProject?.name}
+                            sx={{
+                                width: "100%",
+                                maxHeight: "28rem",
+                                objectFit: "contain",
+                                bgcolor: "#050505",
+                            }}
+                        />
+                    ))}
+                </Box>
+            </ProjectModal>
             <ScreenTransition title="PROGRAMMER" color="#63ADFF" />
         </Box>
     );

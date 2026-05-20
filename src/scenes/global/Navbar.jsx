@@ -27,6 +27,11 @@ const Navbar = ({ sx }) => {
             page: "uidesigner",
             align: "left",
         },
+        {
+            label: "3D Modeller",
+            page: "modeller",
+            align: "left",
+        },
     ];
 
     const isActive = (page) => {

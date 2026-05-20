@@ -12,12 +12,13 @@ import {
     GSDesignerHome,
     AssetPreloader,
     DesktopNotice,
+    Modeller,
 } from "./ImportRoutes";
 
 const App = () => {
     return (
         <Box>
-            <AssetPreloader />
+            {/* <AssetPreloader /> */}
             <DesktopNotice />
             {/* <Navbar /> */}
             <Routes>
@@ -26,6 +27,7 @@ const App = () => {
                 <Route path="/webdev" element={<WebDevHome />} />
                 <Route path="/uidesigner" element={<UIDesignerHome />} />
                 <Route path="/gsdesigner" element={<GSDesignerHome />} />
+                <Route path="/modeller" element={<Modeller />} />
                 {/* <Route path="/blog" /> */}
                 <Route
                     path="/blog/unnamedtd"
