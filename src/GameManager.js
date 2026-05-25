@@ -15,6 +15,7 @@ import majIcon from "/submissiontypes/majIcon.png";
 import gmtkIcon from "/submissiontypes/gmtkIcon.jpg";
 import brackeysIcon from "/submissiontypes/brackeysIcon.jpg";
 import { Tech } from "./Manager";
+import { aprMainUI, aprThumbnail, mmThumbnail } from "./AssetRoutes";
 
 export const Genres = {
     Strategy: "Strategy",
@@ -24,6 +25,8 @@ export const Genres = {
     Platformer: "Platformer",
     Horror: "Horror",
     Puzzle: "Puzzle",
+    Simulation: "Simulation",
+    AutoBattler: "Auto Battler",
 };
 
 export const GameStatus = {
@@ -226,6 +229,28 @@ export const GenresToString = (genres) => {
 
 //Major Games
 export const majorGames = [
+    new MajorGame(
+        "Auto Pet Racers",
+        "A pet auto battler but instead of fighting, they race.",
+        "2026",
+        aprMainUI,
+        "/",
+        [Genres.Strategy, Genres.AutoBattler],
+        [Tech.UnrealEngine, Tech.Blender],
+        "autopetracers",
+        GameStatus.Completed,
+    ),
+    new MajorGame(
+        "Momentum Mayhem",
+        "Physics based puzzle game where solving it the easy way, the unorthodox way or the unintended way are all correct",
+        "2024",
+        mmThumbnail,
+        "/",
+        [Genres.Simulation, Genres.Puzzle],
+        [Tech.Unity, Tech.Blender],
+        "momentum",
+        GameStatus.Completed,
+    ),
     new MajorGame(
         "UnnamedTD",
         "A sci-fi themed 3D tower defense game with procedurally generated maps.",

@@ -151,10 +151,10 @@ function GameDevHome() {
                             </Typography>
                             <Typography component="h2">Tools</Typography>
                             <Typography>
-                                My work usually starts in Unity, then branches
-                                into 3D assets, UI, backend services, and fast
-                                iteration workflows depending on what the game
-                                needs.
+                                I started making games in Unity and then in
+                                Unreal Engine. Long before that, I learned
+                                Blender as an architect. Now the aresenal grows
+                                as the quest for better projects do.
                             </Typography>
                         </Box>
                         <Box className="game-dev-tool-grid">
