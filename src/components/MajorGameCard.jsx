@@ -33,6 +33,7 @@ const MajorGameCard = ({
   };
   return (
     <Card
+      className="game-dev-project-card game-dev-major-card"
       sx={{
         width: 375,
         boxShadow: "0px 0px 10px",
@@ -47,11 +48,16 @@ const MajorGameCard = ({
           navigateToBlog(blogLink);
         }}
       >
-        <Box position="relative">
-          <CardMedia sx={{ height: 250 }} image={image} />
+        <Box position="relative" className="game-dev-project-card-media">
+          <CardMedia
+            className="game-dev-project-card-image"
+            sx={{ height: 250 }}
+            image={image}
+          />
           <TechIconsCardHeader techUsed={techUsed} />
         </Box>
         <CardContent
+          className="game-dev-project-card-content"
           sx={{
             backgroundColor: "#252525",
           }}

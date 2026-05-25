@@ -16,6 +16,7 @@ import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 const EducationCard = ({ name, study, studyRemarks, year, status, icon }) => {
   return (
     <Card
+      className="game-dev-credential-card"
       sx={{
         width: "100%",
         backgroundColor: "#3a3a3a",

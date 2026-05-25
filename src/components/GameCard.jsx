@@ -28,6 +28,7 @@ const GameCard = ({
 }) => {
   return (
     <Card
+      className="game-dev-project-card game-dev-minor-card"
       sx={{
         width: 325,
         minHeight: 350,
@@ -44,11 +45,18 @@ const GameCard = ({
           window.location.href = submissionLink;
         }}
       >
-        <Box position="relative">
-          <CardMedia sx={{ height: 175 }} image={image} />
+        <Box position="relative" className="game-dev-project-card-media">
+          <CardMedia
+            className="game-dev-project-card-image"
+            sx={{ height: 175 }}
+            image={image}
+          />
           <TechIconsCardHeader techUsed={techUsed} />
         </Box>
-        <CardContent sx={{ backgroundColor: "#252525" }}>
+        <CardContent
+          className="game-dev-project-card-content"
+          sx={{ backgroundColor: "#252525" }}
+        >
           <Box
             sx={{
               display: "flex",

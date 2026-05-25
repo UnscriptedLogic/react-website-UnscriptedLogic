@@ -4,6 +4,8 @@ import {
     aprVideo,
     mmThumbnail,
     mm_graphics,
+    mm_video,
+    mmVideo,
     rotr_video,
     rotr_image1,
     rotr_image2,
@@ -48,6 +50,8 @@ export const ModellingProjects = [
         desc: "A whole batch of random items. That's what defines a Rube Goldberg machine and what Momentum Mayhem was all about. \n\nCoupled with a shader to maintain the same look across all the items, this project was a perfect stepping stone into getting a feel for what it would be like to work on a project with more than a handful of assets.",
         thumbnail: mmThumbnail,
         video: mm_graphics,
+        details: "",
+        detailVideos: [mmVideo, mm_video, mm_graphics],
     }),
     new GSProject({
         name: "Upgrade Variants",
