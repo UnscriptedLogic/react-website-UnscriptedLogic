@@ -27,8 +27,13 @@
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(7, 9, 11, 0.92), rgba(7, 9, 11, 0.52) 45%, rgba(7, 9, 11, 0.78)),
-        linear-gradient(180deg, rgba(7, 9, 11, 0.15), rgba(7, 9, 11, 0.95));
+        linear-gradient(
+            90deg,
+            rgba(7, 9, 11, 0.1),
+            rgba(7, 9, 11, 0.1) 20%,
+            rgba(7, 9, 11, 0.1)
+        ),
+        linear-gradient(180deg, rgba(7, 9, 11, 0.15), rgba(7, 9, 11, 0.8));
 }
 
 .game-dev-hero-content {
@@ -137,7 +142,9 @@
     background: #ffffff;
     border-bottom: 4px solid #ff4655;
     box-shadow: 0 12px 34px rgba(17, 24, 32, 0.12);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
 .game-dev-specialize-card:hover {
@@ -340,7 +347,9 @@
     height: 220px !important;
     background-size: contain !important;
     background-color: #111820;
-    transition: transform 0.22s ease, filter 0.22s ease;
+    transition:
+        transform 0.22s ease,
+        filter 0.22s ease;
 }
 
 .GameDevHome .game-dev-minor-card .game-dev-project-card-image {
@@ -398,7 +407,10 @@
     color: #ffffff !important;
 }
 
-.GameDevHome .game-dev-jams .game-dev-project-card-content .MuiTypography-root:nth-of-type(n + 2) {
+.GameDevHome
+    .game-dev-jams
+    .game-dev-project-card-content
+    .MuiTypography-root:nth-of-type(n + 2) {
     color: #cfd6dd !important;
 }
 
@@ -459,11 +471,17 @@
     color: #ffffff !important;
 }
 
-.GameDevHome .game-dev-experience .game-dev-credential-card .MuiTypography-body1 {
+.GameDevHome
+    .game-dev-experience
+    .game-dev-credential-card
+    .MuiTypography-body1 {
     color: #cfd6dd !important;
 }
 
-.GameDevHome .game-dev-experience .game-dev-credential-card .MuiTypography-body2 {
+.GameDevHome
+    .game-dev-experience
+    .game-dev-credential-card
+    .MuiTypography-body2 {
     color: #8f9aa6 !important;
 }
 

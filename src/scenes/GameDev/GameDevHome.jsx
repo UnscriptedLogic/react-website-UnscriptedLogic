@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import video from "/GameDevTrailer.mp4";
+import video from "/GameDevTrailer2.mp4";
 import profilePic from "/bestpicResized.jpg";
 import tpLogo from "/tpLogo.jpg";
 import iteLogo from "/iteLogo.jpg";
@@ -80,7 +80,7 @@ function GameDevHome() {
                     <Box className="game-dev-hero-scrim" />
                     <Container maxWidth="lg" className="game-dev-hero-content">
                         <Typography className="game-dev-kicker">
-                            Nathaniel Harold Lumbao Alcala
+                            Nathaniel Harold Alcala
                         </Typography>
                         <Typography
                             component="h1"
@@ -147,11 +147,9 @@ function GameDevHome() {
                     <Container maxWidth="lg" className="game-dev-tools-inner">
                         <Box className="game-dev-tools-copy">
                             <Typography className="game-dev-kicker">
-                                Tools I Use
+                                Technologies and Softwares I've used
                             </Typography>
-                            <Typography component="h2">
-                                The stack behind the projects
-                            </Typography>
+                            <Typography component="h2">Tools</Typography>
                             <Typography>
                                 My work usually starts in Unity, then branches
                                 into 3D assets, UI, backend services, and fast
@@ -182,7 +180,7 @@ function GameDevHome() {
                     </Container>
                 </Box>
 
-                <Box component="section" id="about" className="game-dev-about">
+                {/* <Box component="section" id="about" className="game-dev-about">
                     <Container maxWidth="lg" className="game-dev-about-inner">
                         <Box className="game-dev-about-media">
                             <Avatar src={profilePic} />
@@ -192,7 +190,7 @@ function GameDevHome() {
                                 About Me
                             </Typography>
                             <Typography component="h2">
-                                just make good games
+                                Nathaniel Harold Alcala
                             </Typography>
                             <Typography>
                                 An aspiring self-learned game developer from
@@ -202,7 +200,7 @@ function GameDevHome() {
                             </Typography>
                         </Box>
                     </Container>
-                </Box>
+                </Box> */}
 
                 <Box
                     component="section"
