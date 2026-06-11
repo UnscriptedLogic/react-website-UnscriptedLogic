@@ -14,6 +14,7 @@ import {
     DesktopNotice,
     Modeller,
 } from "./ImportRoutes";
+import { UnscriptedDuelsBlog } from "./scenes/GameDev/Games/UnscriptedDuels";
 
 const App = () => {
     return (
@@ -32,6 +33,10 @@ const App = () => {
                 <Route
                     path="/blog/unnamedtd"
                     element={<BlogPage page={<UnnamedTD />} />}
+                />
+                <Route
+                    path="/blog/unscriptedduels"
+                    element={<BlogPage page={<UnscriptedDuelsBlog />} />}
                 />
             </Routes>
             {/* <Footer></Footer> */}

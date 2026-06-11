@@ -35,6 +35,7 @@ export const Genres = {
     Simulation: "Simulation",
     AutoBattler: "Auto Battler",
     Multiplayer: "Multiplayer",
+    Combat: "Combat",
 };
 
 export const GameStatus = {
@@ -311,11 +312,11 @@ export const minorGames = [
         "2025",
         unscriptedduels,
         "/",
-        [Genres.Platformer, Genres.Multiplayer],
+        [Genres.Multiplayer, Genres.Combat],
         [Tech.Unity, Tech.Blender],
-        "theskilltree",
-        GameSubmissionType.Personal,
         "/",
+        GameSubmissionType.Personal,
+        "/blog/unscriptedduels",
     ),
     new MinorGame(
         "Dumbass Fish Games",
