@@ -3,128 +3,149 @@ import { useNavigate } from "react-router-dom";
 import { GetStatusChipColor, GenresToString } from "../GameManager";
 
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActionArea,
-  Typography,
-  Chip,
-  Box,
-  Divider,
+    Card,
+    CardMedia,
+    CardContent,
+    CardActionArea,
+    Typography,
+    Chip,
+    Box,
+    Divider,
 } from "@mui/material";
 
 import CircleIcon from "@mui/icons-material/Circle";
 import TechIconsCardHeader from "./TechIconsCardHeader";
 
 const MajorGameCard = ({
-  image,
-  title,
-  desc,
-  year,
-  status,
-  genres,
-  techUsed,
-  blogLink,
+    image,
+    title,
+    desc,
+    year,
+    status,
+    genres,
+    techUsed,
+    blogLink,
+    gameLink,
 }) => {
-  const navigate = useNavigate();
-  const navigateToBlog = (blogName) => {
-    navigate(`/blog/${blogName}`);
-    window.scroll(0, 0);
-  };
-  return (
-    <Card
-      className="game-dev-project-card game-dev-major-card"
-      sx={{
-        width: 375,
-        boxShadow: "0px 0px 10px",
-        ":hover": {
-          boxShadow: "0px 0px 25px",
-        },
-      }}
-      // variant="outlined"
-    >
-      <CardActionArea
-        onClick={() => {
-          navigateToBlog(blogLink);
-        }}
-      >
-        <Box position="relative" className="game-dev-project-card-media">
-          <CardMedia
-            className="game-dev-project-card-image"
-            sx={{ height: 250 }}
-            image={image}
-          />
-          <TechIconsCardHeader techUsed={techUsed} />
-        </Box>
-        <CardContent
-          className="game-dev-project-card-content"
-          sx={{
-            backgroundColor: "#252525",
-          }}
+    const navigate = useNavigate();
+    const navigateToBlog = (blogName) => {
+        navigate(`/blog/${blogName}`);
+        window.scroll(0, 0);
+    };
+    return (
+        <Card
+            className="game-dev-project-card game-dev-major-card"
+            sx={{
+                width: 375,
+                boxShadow: "0px 0px 10px",
+                ":hover": {
+                    boxShadow: "0px 0px 25px",
+                },
+            }}
+            // variant="outlined"
         >
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <Box
-              sx={{
-                display: "flex",
-                columnGap: "5px",
-                marginTop: "-5px",
-              }}
+            <CardActionArea
+                onClick={() => {
+                    if (blogLink != "/") {
+                        navigateToBlog(blogLink);
+                    } else {
+                        window.location.href = gameLink;
+                    }
+                }}
             >
-              <Typography
-                variant="h6"
-                component="div"
-                color={"white"}
-                maxWidth="185px"
-                overflow="hidden"
-                textOverflow="ellipsis"
-                whiteSpace="nowrap"
-              >
-                {title}
-              </Typography>
-              <CircleIcon
-                sx={{ fontSize: "8px", color: "#5f5f5f", alignSelf: "center" }}
-              />
-              <Typography
-                variant="h6"
-                component="div"
-                color={"#5f5f5f"}
-                fontSize="20px"
-                alignSelf="center"
-              >
-                {year}
-              </Typography>
-            </Box>
-            <Chip
-              label={status}
-              color="default"
-              size="small"
-              sx={{
-                marginTop: 0.5,
-                marginBottom: 0.5,
-                fontSize: "10px",
-                width: "75px",
-                backgroundColor: GetStatusChipColor(status),
-              }}
-            />
-          </Box>
-          <Box>
-            <Typography
-              color={"#7f7f7f"}
-              sx={{ fontSize: "13px", marginTop: -0.75 }}
-            >
-              {GenresToString(genres)}
-            </Typography>
-            <Divider
-              sx={{ borderColor: "#5a5a5a", marginTop: 0.5, marginBottom: 1 }}
-            />
-            <Typography variant="body3" color={"white"}>
-              {desc}
-            </Typography>
-          </Box>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  );
+                <Box
+                    position="relative"
+                    className="game-dev-project-card-media"
+                >
+                    <CardMedia
+                        className="game-dev-project-card-image"
+                        sx={{ height: 250 }}
+                        image={image}
+                    />
+                    <TechIconsCardHeader techUsed={techUsed} />
+                </Box>
+                <CardContent
+                    className="game-dev-project-card-content"
+                    sx={{
+                        backgroundColor: "#252525",
+                    }}
+                >
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                display: "flex",
+                                columnGap: "5px",
+                                marginTop: "-5px",
+                            }}
+                        >
+                            <Typography
+                                variant="h6"
+                                component="div"
+                                color={"white"}
+                                maxWidth="185px"
+                                overflow="hidden"
+                                textOverflow="ellipsis"
+                                whiteSpace="nowrap"
+                            >
+                                {title}
+                            </Typography>
+                            <CircleIcon
+                                sx={{
+                                    fontSize: "8px",
+                                    color: "#5f5f5f",
+                                    alignSelf: "center",
+                                }}
+                            />
+                            <Typography
+                                variant="h6"
+                                component="div"
+                                color={"#5f5f5f"}
+                                fontSize="20px"
+                                alignSelf="center"
+                            >
+                                {year}
+                            </Typography>
+                        </Box>
+                        <Chip
+                            label={status}
+                            color="default"
+                            size="small"
+                            sx={{
+                                marginTop: 0.5,
+                                marginBottom: 0.5,
+                                fontSize: "10px",
+                                width: "75px",
+                                backgroundColor: GetStatusChipColor(status),
+                            }}
+                        />
+                    </Box>
+                    <Box>
+                        <Typography
+                            color={"#7f7f7f"}
+                            sx={{ fontSize: "13px", marginTop: -0.75 }}
+                        >
+                            {GenresToString(genres)}
+                        </Typography>
+                        <Divider
+                            sx={{
+                                borderColor: "#5a5a5a",
+                                marginTop: 0.5,
+                                marginBottom: 1,
+                            }}
+                        />
+                        <Typography variant="body3" color={"white"}>
+                            {desc}
+                        </Typography>
+                    </Box>
+                </CardContent>
+            </CardActionArea>
+        </Card>
+    );
 };
 
 export default MajorGameCard;

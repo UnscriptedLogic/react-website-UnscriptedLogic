@@ -252,6 +252,7 @@ function GameDevHome() {
                                     genres={item.genres}
                                     techUsed={item.techUsed}
                                     blogLink={item.blogLink}
+                                    gameLink={item.gameLink}
                                 ></MajorGameCard>
                             ))}
                         </Box>

@@ -24,6 +24,9 @@ export { default as rotr_image2 } from "/uidesign/rotr/rotr_image2.png";
 export { default as rotr_image3 } from "/uidesign/rotr/rotr_image3.png";
 export { default as rotr_image4 } from "/uidesign/rotr/rotr_image4.png";
 
+//dfg
+export { default as dfg_thumbnail } from "/uidesign/FishGame/Thumbnail.png";
+
 export { default as unnamedTDIcon } from "/unnamedtdIcon.png";
 export { default as dtIcon } from "/dtIcon.png";
 export { default as ccIcon } from "/ccIcon.png";

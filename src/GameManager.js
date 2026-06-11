@@ -6,6 +6,7 @@ import vIcon from "/vIcon.png";
 import cc2Icon from "/cc2Icon.png";
 import mlIcon from "/mlIcon.png";
 import diamonddepthsIcon from "/diamondDepths.png";
+import unscriptedduels from "/uidesign/unscriptedduels/UnscriptedDuelsThumbnail.png";
 
 import ggjIcon from "/submissiontypes/ggjIcon.png";
 import mjIcon from "/submissiontypes/mjIcon.png";
@@ -14,8 +15,14 @@ import gameOffIcon from "/submissiontypes/gameOffIcon.png";
 import majIcon from "/submissiontypes/majIcon.png";
 import gmtkIcon from "/submissiontypes/gmtkIcon.jpg";
 import brackeysIcon from "/submissiontypes/brackeysIcon.jpg";
+import fishfestIcon from "/submissiontypes/FishFestIcon.png";
 import { Tech } from "./Manager";
-import { aprMainUI, aprThumbnail, mmThumbnail } from "./AssetRoutes";
+import {
+    aprMainUI,
+    aprThumbnail,
+    mmThumbnail,
+    dfg_thumbnail,
+} from "./AssetRoutes";
 
 export const Genres = {
     Strategy: "Strategy",
@@ -27,6 +34,7 @@ export const Genres = {
     Puzzle: "Puzzle",
     Simulation: "Simulation",
     AutoBattler: "Auto Battler",
+    Multiplayer: "Multiplayer",
 };
 
 export const GameStatus = {
@@ -111,6 +119,24 @@ const mixAndJamSubmission = new SubmissionType(
     "#ffffff",
 );
 
+const fishFestSubmission = new SubmissionType(
+    "FishFest Game Jam",
+    "An annual game jam hosted by the YouTuber PossiblyAxolotl about making a game on fishes",
+    fishfestIcon,
+    "Fish Fest",
+    "#addbf0",
+    "#ff8200",
+);
+
+const personal = new SubmissionType(
+    "Personal 😁",
+    "A personal project that I initiated to learn/practice/show off a particular skill. Not all projects reach the finish line but as long as you learned something, you come out of it a little different everytime.",
+    schoolIcon,
+    "Personal 😁",
+    "#545454",
+    "#ffffff",
+);
+
 export const GameSubmissionType = {
     GMTK: gmtkSubmission,
     Brackeys: brackeysSubmission,
@@ -119,6 +145,8 @@ export const GameSubmissionType = {
     GameOff: gameoffSubmission,
     School: schoolSubmission,
     MixAndJam: mixAndJamSubmission,
+    FishFest: fishFestSubmission,
+    Personal: personal,
 };
 
 export class Game {
@@ -234,10 +262,10 @@ export const majorGames = [
         "A pet auto battler but instead of fighting, they race.",
         "2026",
         aprMainUI,
-        "/",
+        "https://store.steampowered.com/app/4135220",
         [Genres.Strategy, Genres.AutoBattler],
         [Tech.UnrealEngine, Tech.Blender],
-        "autopetracers",
+        "/",
         GameStatus.Completed,
     ),
     new MajorGame(
@@ -245,10 +273,10 @@ export const majorGames = [
         "Physics based puzzle game where solving it the easy way, the unorthodox way or the unintended way are all correct",
         "2024",
         mmThumbnail,
-        "/",
+        "https://store.steampowered.com/app/3051110",
         [Genres.Simulation, Genres.Puzzle],
         [Tech.Unity, Tech.Blender],
-        "momentum",
+        "/",
         GameStatus.Completed,
     ),
     new MajorGame(
@@ -270,13 +298,37 @@ export const majorGames = [
         "/",
         [Genres.Arcade, Genres.Shooter],
         [Tech.Unity, Tech.Blender],
-        "desolitetanks",
+        "/",
         GameStatus.Completed,
     ),
 ];
 
 //Minor Games
 export const minorGames = [
+    new MinorGame(
+        "UnscriptedDuels",
+        "A prototype third person PvP hand to hand combo combat with abilities",
+        "2025",
+        unscriptedduels,
+        "/",
+        [Genres.Platformer, Genres.Multiplayer],
+        [Tech.Unity, Tech.Blender],
+        "theskilltree",
+        GameSubmissionType.Personal,
+        "/",
+    ),
+    new MinorGame(
+        "Dumbass Fish Games",
+        "A first person packing arcade game where you play as a fish that sells fish to other fish",
+        "2025",
+        dfg_thumbnail,
+        "/",
+        [Genres.Platformer, Genres.Multiplayer],
+        [Tech.Unity, Tech.Blender],
+        "theskilltree",
+        GameSubmissionType.FishFest,
+        "/",
+    ),
     new MinorGame(
         "Diamond Depths",
         "A 2D platformer where instead of controlling the player, you control where the platforms are, building a path for your player in realtime.",
