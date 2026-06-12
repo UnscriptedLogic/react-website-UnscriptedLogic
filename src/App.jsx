@@ -16,6 +16,7 @@ import {
 } from "./ImportRoutes";
 import { UnscriptedDuelsBlog } from "./scenes/GameDev/Games/UnscriptedDuels";
 import { AutoPetRacersBlog } from "./scenes/GameDev/Games/AutoPetRacersBlog";
+import { UntitledBotBuilderPage } from "./scenes/GameDev/Games/UntitledBotBuilderPage";
 
 const App = () => {
     return (
@@ -42,6 +43,10 @@ const App = () => {
                 <Route
                     path="/blog/autopetracers"
                     element={<BlogPage page={<AutoPetRacersBlog />} />}
+                />
+                <Route
+                    path="/blog/botBuilder"
+                    element={<BlogPage page={<UntitledBotBuilderPage />} />}
                 />
             </Routes>
             {/* <Footer></Footer> */}

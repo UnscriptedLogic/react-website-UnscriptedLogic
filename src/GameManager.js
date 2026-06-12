@@ -7,6 +7,7 @@ import cc2Icon from "/cc2Icon.png";
 import mlIcon from "/mlIcon.png";
 import diamonddepthsIcon from "/diamondDepths.png";
 import unscriptedduels from "/uidesign/unscriptedduels/UnscriptedDuelsThumbnail.png";
+import untitledBotBuilder from "/uidesign/botBuilder/botBuilder_Image5.png";
 
 import ggjIcon from "/submissiontypes/ggjIcon.png";
 import mjIcon from "/submissiontypes/mjIcon.png";
@@ -36,6 +37,7 @@ export const Genres = {
     AutoBattler: "Auto Battler",
     Multiplayer: "Multiplayer",
     Combat: "Combat",
+    Building: "Building",
 };
 
 export const GameStatus = {
@@ -317,6 +319,18 @@ export const minorGames = [
         "/",
         GameSubmissionType.Personal,
         "/blog/unscriptedduels",
+    ),
+    new MinorGame(
+        "Untitled Bot Builder",
+        "A prototype multiplayer first person game about building robots with basic blocks to fight other players",
+        "2025",
+        untitledBotBuilder,
+        "/",
+        [Genres.Multiplayer, Genres.Combat, Genres.Building],
+        [Tech.Unity, Tech.Blender],
+        "/",
+        GameSubmissionType.Personal,
+        "/blog/botBuilder",
     ),
     new MinorGame(
         "Dumbass Fish Games",
