@@ -266,7 +266,7 @@ export const majorGames = [
         "https://store.steampowered.com/app/4135220",
         [Genres.Strategy, Genres.AutoBattler],
         [Tech.UnrealEngine, Tech.Blender],
-        "/",
+        "/autopetracers",
         GameStatus.Completed,
     ),
     new MajorGame(

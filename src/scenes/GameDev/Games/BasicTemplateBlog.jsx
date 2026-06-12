@@ -3,6 +3,13 @@ import { Box, Container, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import BlogStructure, { BlogBlockType } from "../../../BlogStructure";
 
+const createSectionSlug = (text) =>
+    String(text)
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "") || "section";
+
 const BasicTemplateBlog = ({
     blog,
     blocks,
@@ -19,6 +26,41 @@ const BasicTemplateBlog = ({
         content instanceof BlogStructure
             ? content.blocks
             : new BlogStructure(content).blocks;
+    const sectionIds = new Map();
+    const sectionNameCounts = new Map();
+    const sections = blogBlocks.flatMap((block, index) => {
+        const isHeading =
+            block.type === BlogBlockType.HEADER ||
+            block.type === BlogBlockType.SUBHEADER;
+
+        if (!isHeading) {
+            return [];
+        }
+
+        const slug = createSectionSlug(block.text);
+        const occurrence = (sectionNameCounts.get(slug) ?? 0) + 1;
+        const id = occurrence === 1 ? slug : `${slug}-${occurrence}`;
+
+        sectionNameCounts.set(slug, occurrence);
+        sectionIds.set(index, id);
+
+        return [
+            {
+                id,
+                text: block.text,
+                level: block.level,
+            },
+        ];
+    });
+
+    const scrollToSection = (event, id) => {
+        event.preventDefault();
+        document.getElementById(id)?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+        window.history.replaceState(null, "", `#${id}`);
+    };
 
     return (
         <Box
@@ -76,30 +118,123 @@ const BasicTemplateBlog = ({
                 </Box>
             ) : null}
 
-            <Container maxWidth={maxWidth}>
+            <Container maxWidth="xl">
                 <Box
-                    component="article"
                     position="relative"
-                    display="flex"
-                    flexDirection="column"
-                    gap="24px"
-                    paddingBottom="48px"
+                    display="grid"
+                    gridTemplateColumns={{
+                        xs: "minmax(0, 1fr)",
+                        lg: "220px minmax(0, 1fr)",
+                    }}
+                    gap={{ xs: 0, lg: "40px" }}
                     paddingTop={heroImage ? 0 : "24px"}
                     marginTop={heroImage ? "-96px" : 0}
                 >
-                    {title ? (
-                        <Typography
-                            fontSize={{ xs: "38px", sm: "50px" }}
-                            color="#e5e5ff"
-                            lineHeight={1.1}
-                            fontFamily="PointBlack"
-                            sx={{ textShadow: "3px 3px 6px #000" }}
+                    {sections.length > 0 ? (
+                        <Box
+                            component="nav"
+                            aria-label="Blog sections"
+                            display={{ xs: "none", lg: "block" }}
+                            position="sticky"
+                            top="24px"
+                            alignSelf="start"
+                            maxHeight="calc(100vh - 48px)"
+                            overflow="auto"
+                            padding="18px"
+                            border={`1px solid ${alpha(themeColor, 0.45)}`}
+                            borderRadius="10px"
+                            sx={{
+                                backgroundColor: alpha("#0f0f19", 0.88),
+                                backdropFilter: "blur(8px)",
+                            }}
                         >
-                            {title}
-                        </Typography>
+                            <Typography
+                                color="#e5e5ff"
+                                fontFamily="PointBlack"
+                                fontSize="16px"
+                                marginBottom="12px"
+                            >
+                                On this page
+                            </Typography>
+                            <Box
+                                component="ul"
+                                display="flex"
+                                flexDirection="column"
+                                gap="10px"
+                                margin={0}
+                                padding={0}
+                                sx={{ listStyle: "none" }}
+                            >
+                                {sections.map((section) => (
+                                    <Box
+                                        component="li"
+                                        key={section.id}
+                                        paddingLeft={
+                                            section.level > 2 ? "12px" : 0
+                                        }
+                                    >
+                                        <Box
+                                            component="a"
+                                            href={`#${section.id}`}
+                                            onClick={(event) =>
+                                                scrollToSection(
+                                                    event,
+                                                    section.id,
+                                                )
+                                            }
+                                            color={textColor}
+                                            fontFamily="PointRegular"
+                                            fontSize={
+                                                section.level > 2
+                                                    ? "13px"
+                                                    : "14px"
+                                            }
+                                            lineHeight={1.3}
+                                            sx={{
+                                                display: "block",
+                                                textDecoration: "none",
+                                                transition:
+                                                    "color 150ms ease, transform 150ms ease",
+                                                "&:hover, &:focus-visible": {
+                                                    color: "#ffffff",
+                                                    transform:
+                                                        "translateX(3px)",
+                                                },
+                                            }}
+                                        >
+                                            {section.text}
+                                        </Box>
+                                    </Box>
+                                ))}
+                            </Box>
+                        </Box>
                     ) : null}
 
-                    {blogBlocks.map((block, index) => {
+                    <Container
+                        component="article"
+                        maxWidth={maxWidth}
+                        disableGutters
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "24px",
+                            minWidth: 0,
+                            paddingBottom: "48px",
+                        }}
+                    >
+                        {title ? (
+                            <Typography
+                                fontSize={{ xs: "38px", sm: "50px" }}
+                                color="#e5e5ff"
+                                lineHeight={1.1}
+                                fontFamily="PointBlack"
+                                sx={{ textShadow: "3px 3px 6px #000" }}
+                            >
+                                {title}
+                            </Typography>
+                        ) : null}
+
+                        {blogBlocks.map((block, index) => {
                         if (block.type === BlogBlockType.PARAGRAPH) {
                             return (
                                 <Typography
@@ -120,6 +255,7 @@ const BasicTemplateBlog = ({
                         if (block.type === BlogBlockType.HEADER) {
                             return (
                                 <Typography
+                                    id={sectionIds.get(index)}
                                     component={`h${block.level}`}
                                     color="#e5e5ff"
                                     fontFamily="PointBlack"
@@ -135,7 +271,26 @@ const BasicTemplateBlog = ({
                                         themeColor,
                                         0.7,
                                     )}`}
+                                    sx={{ scrollMarginTop: "24px" }}
                                     key={`header-${index}`}
+                                >
+                                    {block.text}
+                                </Typography>
+                            );
+                        }
+
+                        if (block.type === BlogBlockType.SUBHEADER) {
+                            return (
+                                <Typography
+                                    id={sectionIds.get(index)}
+                                    component={`h${block.level}`}
+                                    color="#e5e5ff"
+                                    fontFamily="PointBlack"
+                                    fontSize={{ xs: "21px", sm: "26px" }}
+                                    lineHeight={1.25}
+                                    margin="8px 0 0"
+                                    sx={{ scrollMarginTop: "24px" }}
+                                    key={`subheader-${index}`}
                                 >
                                     {block.text}
                                 </Typography>
@@ -189,6 +344,8 @@ const BasicTemplateBlog = ({
                         }
 
                         const isVideo = block.type === BlogBlockType.VIDEO;
+                        const isYouTube =
+                            block.type === BlogBlockType.YOUTUBE;
 
                         return (
                             <Box
@@ -200,7 +357,25 @@ const BasicTemplateBlog = ({
                                 margin={0}
                                 key={`${block.type}-${index}`}
                             >
-                                {isVideo ? (
+                                {isYouTube ? (
+                                    <Box
+                                        component="iframe"
+                                        src={block.src}
+                                        title={block.title}
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen={block.allowFullScreen}
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        sx={{
+                                            display: "block",
+                                            width: block.width,
+                                            maxWidth: "100%",
+                                            aspectRatio: block.aspectRatio,
+                                            border: 0,
+                                            borderRadius: "10px",
+                                            boxShadow: "0 0 3px",
+                                        }}
+                                    />
+                                ) : isVideo ? (
                                     <Box
                                         component="video"
                                         src={block.src}
@@ -249,7 +424,8 @@ const BasicTemplateBlog = ({
                                 ) : null}
                             </Box>
                         );
-                    })}
+                        })}
+                    </Container>
                 </Box>
             </Container>
         </Box>

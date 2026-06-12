@@ -1,5 +1,5 @@
 import BasicTemplateBlog from "./BasicTemplateBlog";
-import { unscriptedDuelsBlog } from "../../../Blogs";
+import { unscriptedDuelsBlog } from "../../../blogs/UnscriptedDuelsBlog";
 import unscriptedDuelsHero from "/uidesign/unscriptedduels/UnscriptedDuelsThumbnail.png";
 
 export const UnscriptedDuelsBlog = () => {

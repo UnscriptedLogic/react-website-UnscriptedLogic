@@ -15,6 +15,7 @@ import {
     Modeller,
 } from "./ImportRoutes";
 import { UnscriptedDuelsBlog } from "./scenes/GameDev/Games/UnscriptedDuels";
+import { AutoPetRacersBlog } from "./scenes/GameDev/Games/AutoPetRacersBlog";
 
 const App = () => {
     return (
@@ -37,6 +38,10 @@ const App = () => {
                 <Route
                     path="/blog/unscriptedduels"
                     element={<BlogPage page={<UnscriptedDuelsBlog />} />}
+                />
+                <Route
+                    path="/blog/autopetracers"
+                    element={<BlogPage page={<AutoPetRacersBlog />} />}
                 />
             </Routes>
             {/* <Footer></Footer> */}
