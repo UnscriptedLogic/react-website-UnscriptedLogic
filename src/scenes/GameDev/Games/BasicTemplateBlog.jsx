@@ -124,9 +124,9 @@ const BasicTemplateBlog = ({
                     display="grid"
                     gridTemplateColumns={{
                         xs: "minmax(0, 1fr)",
-                        lg: "220px minmax(0, 1fr)",
+                        xl: "220px minmax(0, 1fr)",
                     }}
-                    gap={{ xs: 0, lg: "40px" }}
+                    gap={{ xs: 0, xl: "40px" }}
                     paddingTop={heroImage ? 0 : "24px"}
                     marginTop={heroImage ? "-96px" : 0}
                 >
@@ -134,7 +134,9 @@ const BasicTemplateBlog = ({
                         <Box
                             component="nav"
                             aria-label="Blog sections"
-                            display={{ xs: "none", lg: "block" }}
+                            display={{ xs: "none", xl: "block" }}
+                            gridColumn="1"
+                            gridRow="1"
                             position="sticky"
                             top="24px"
                             alignSelf="start"
@@ -215,6 +217,9 @@ const BasicTemplateBlog = ({
                         maxWidth={maxWidth}
                         disableGutters
                         sx={{
+                            gridColumn: { xs: "1", xl: "1 / -1" },
+                            gridRow: "1",
+                            justifySelf: "center",
                             display: "flex",
                             flexDirection: "column",
                             gap: "24px",
