@@ -8,6 +8,11 @@ export const BlogBlockType = Object.freeze({
     YOUTUBE: "youtube",
 });
 
+export const BlogTopic = Object.freeze({
+    GAME_DESIGN: "game design",
+    NETWORKING: "networking",
+});
+
 export class BlogHeader {
     constructor(text, { level = 2 } = {}) {
         const normalizedLevel = Number(level);
@@ -185,7 +190,7 @@ export class BlogYouTube {
 }
 
 export class BlogStructure {
-    constructor(blocks = []) {
+    constructor(blocks = [], { tags = [] } = {}) {
         if (!Array.isArray(blocks)) {
             throw new TypeError(
                 "BlogStructure expects an array of blog blocks.",
@@ -193,6 +198,43 @@ export class BlogStructure {
         }
 
         this.blocks = blocks.map(BlogStructure.normalizeBlock);
+        this.tags = BlogStructure.normalizeTags(tags);
+    }
+
+    static normalizeTag(tag) {
+        return String(tag).trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
+    static normalizeTags(tags) {
+        if (!Array.isArray(tags)) {
+            throw new TypeError("BlogStructure tags must be an array.");
+        }
+
+        return [
+            ...new Set(tags.map(BlogStructure.normalizeTag).filter(Boolean)),
+        ];
+    }
+
+    hasTag(tag) {
+        return this.tags.includes(BlogStructure.normalizeTag(tag));
+    }
+
+    addTag(tag) {
+        const normalizedTag = BlogStructure.normalizeTag(tag);
+
+        if (normalizedTag && !this.tags.includes(normalizedTag)) {
+            this.tags.push(normalizedTag);
+        }
+
+        return this;
+    }
+
+    removeTag(tag) {
+        const normalizedTag = BlogStructure.normalizeTag(tag);
+        this.tags = this.tags.filter(
+            (existingTag) => existingTag !== normalizedTag,
+        );
+        return this;
     }
 
     static paragraph(text) {

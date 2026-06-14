@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Chip, Container, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import BlogStructure, { BlogBlockType } from "../../../BlogStructure";
 
@@ -22,10 +22,12 @@ const BasicTemplateBlog = ({
     textColor = "#bfbfcf",
 }) => {
     const content = blog ?? blocks ?? [];
-    const blogBlocks =
+    const blogContent =
         content instanceof BlogStructure
-            ? content.blocks
-            : new BlogStructure(content).blocks;
+            ? content
+            : new BlogStructure(content);
+    const blogBlocks = blogContent.blocks;
+    const blogTags = blogContent.tags;
     const sectionIds = new Map();
     const sectionNameCounts = new Map();
     const sections = blogBlocks.flatMap((block, index) => {
@@ -227,16 +229,64 @@ const BasicTemplateBlog = ({
                             paddingBottom: "48px",
                         }}
                     >
-                        {title ? (
-                            <Typography
-                                fontSize={{ xs: "38px", sm: "50px" }}
-                                color="#e5e5ff"
-                                lineHeight={1.1}
-                                fontFamily="PointBlack"
-                                sx={{ textShadow: "3px 3px 6px #000" }}
+                        {title || blogTags.length > 0 ? (
+                            <Box
+                                display="flex"
+                                flexDirection="column"
+                                alignItems="flex-start"
+                                gap="12px"
                             >
-                                {title}
-                            </Typography>
+                                {title ? (
+                                    <Typography
+                                        fontSize={{ xs: "38px", sm: "50px" }}
+                                        color="#e5e5ff"
+                                        lineHeight={1.1}
+                                        fontFamily="PointBlack"
+                                        sx={{
+                                            textShadow: "3px 3px 6px #000",
+                                        }}
+                                    >
+                                        {title}
+                                    </Typography>
+                                ) : null}
+
+                                {blogTags.length > 0 ? (
+                                    <Box
+                                        display="flex"
+                                        flexWrap="wrap"
+                                        gap="8px"
+                                        aria-label="Blog topics"
+                                    >
+                                        {blogTags.map((tag) => (
+                                            <Chip
+                                                key={tag}
+                                                label={tag}
+                                                size="small"
+                                                sx={{
+                                                    height: "24px",
+                                                    border: `1px solid ${alpha(
+                                                        themeColor,
+                                                        0.8,
+                                                    )}`,
+                                                    backgroundColor: alpha(
+                                                        themeColor,
+                                                        0.28,
+                                                    ),
+                                                    color: "#ffffff",
+                                                    fontFamily: "PointRegular",
+                                                    fontSize: "12px",
+                                                    textTransform: "capitalize",
+                                                    boxShadow:
+                                                        "0 2px 6px rgba(0, 0, 0, 0.35)",
+                                                    "& .MuiChip-label": {
+                                                        paddingX: "10px",
+                                                    },
+                                                }}
+                                            />
+                                        ))}
+                                    </Box>
+                                ) : null}
+                            </Box>
                         ) : null}
 
                         {blogBlocks.map((block, index) => {
