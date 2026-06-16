@@ -11,6 +11,11 @@ export const BlogBlockType = Object.freeze({
 export const BlogTopic = Object.freeze({
     GAME_DESIGN: "game design",
     NETWORKING: "networking",
+    GAME_PROGRAMMING: "Game Programming",
+    SOLO_GAME_DEVELOPMENT: "solo game development",
+    AI_PROGRAMMING: "AI programming",
+    UNREAL_ENGINE: "Unreal Engine",
+    GAME_PRODUCTION: "game production",
 });
 
 export class BlogHeader {

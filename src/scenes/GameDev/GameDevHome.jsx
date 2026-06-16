@@ -226,11 +226,11 @@ function GameDevHome() {
                                 </Typography>
                                 <Typography>{featuredGame.desc}</Typography>
                                 <Button
-                                    href={`/blog/${featuredGame.blogLink}`}
+                                    href={`/blog${featuredGame.blogLink}`}
                                     variant="contained"
                                     endIcon={<ArrowForwardIcon />}
                                 >
-                                    Open Case Study
+                                    Open Blog
                                 </Button>
                             </Box>
                             <Box className="game-dev-feature-project-media">
